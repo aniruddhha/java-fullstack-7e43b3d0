@@ -1,7 +1,25 @@
 class Config { // parent/base/super
     
-    String usNm;
-    String pass;
+    // access modifiers
+    // public, private, protected, default
+    private String usNm; 
+    private String pass;
+
+    public String getUsNm() {
+        return usNm;
+    }
+
+    public void setUsNm(String usNm) {
+        this.usNm = usNm;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public String getPass() {
+        return pass;
+    }
 
     boolean validateUsNm() {
         return false;
@@ -35,21 +53,27 @@ public class InheritanceMain {
     public static void main(String[] args) {
         
         Config cfg = new Config();
-        cfg.usNm = "abc";
-        cfg.pass = "abc";
+        cfg.setUsNm("abc");
+        cfg.setPass("pqr");
+        // cfg.usNm = "abc";
+        // cfg.pass = "abc";
         cfg.validateUsNm();
         cfg.validatePass();
 
         DbConfig dbCfg = new DbConfig();
-        dbCfg.usNm = "abc";
-        dbCfg.pass = "abc";
+        // dbCfg.usNm = "abc";
+        // dbCfg.pass = "abc";
+        cfg.setUsNm("abc");
+        cfg.setPass("pqr");
         dbCfg.validateUsNm();
         dbCfg.validatePass();
         dbCfg.validateUrl();
 
         NwConfig nwCfg = new NwConfig();
-        nwCfg.usNm = "abc";
-        nwCfg.pass = "abc";
+        // nwCfg.usNm = "abc";
+        // nwCfg.pass = "abc";
+        cfg.setUsNm("abc");
+        cfg.setPass("pqr");
         nwCfg.validateUsNm();
         nwCfg.validatePass();
         nwCfg.validateProtocol();

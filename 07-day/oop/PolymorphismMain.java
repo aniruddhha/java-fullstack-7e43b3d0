@@ -25,7 +25,6 @@ class Circle extends Shape {
         this.rad = rad;
     }
 
-    @Override
     double area() {
         System.out.println("In Circle Class");
         return rad * rad * 3.14;

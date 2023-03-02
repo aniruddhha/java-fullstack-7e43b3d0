@@ -4,6 +4,7 @@ class Config { // parent/base/super
     // public, private, protected, default
     private String usNm; 
     private String pass;
+    protected int ver;
 
     public String getUsNm() {
         return usNm;
@@ -69,6 +70,7 @@ public class InheritanceMain {
     public static void main(String[] args) {
         
         Config cfg = new Config();
+        cfg.ver = 10;
         cfg.setUsNm("abc");
         cfg.setPass("pqr");
         // cfg.usNm = "abc";
@@ -81,6 +83,7 @@ public class InheritanceMain {
         // dbCfg.pass = "abc";
         dbCfg.setUsNm("abc");
         dbCfg.setPass("pqr");
+        dbCfg.ver = 10;
         
         dbCfg.validateUsNm();
         dbCfg.validatePass();
@@ -91,8 +94,10 @@ public class InheritanceMain {
         NwConfig nwCfg = new NwConfig();
         // nwCfg.usNm = "abc";
         // nwCfg.pass = "abc";
-        dbCfg.setUsNm("abc");
-        dbCfg.setPass("pqr");
+
+        nwCfg.ver = 10;
+        nwCfg.setUsNm("abc");
+        nwCfg.setPass("pqr");
 
         nwCfg.validateUsNm();
         nwCfg.validatePass();

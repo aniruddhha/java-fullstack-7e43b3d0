@@ -37,8 +37,8 @@ public class Main {
         int birthYear2 = 2023 - 30;
         int birthYear3 = 2023 - 50;
 
+        // 2nd revolution
         createPerson();
-
         determineDob();
     }
 }

@@ -21,11 +21,11 @@ class Config { // parent/base/super
         return pass;
     }
 
-    boolean validateUsNm() {
+    public boolean validateUsNm() {
         return false;
     }
 
-    boolean validatePass() {
+    public boolean validatePass() {
         return false;
     }
 }
@@ -33,17 +33,33 @@ class Config { // parent/base/super
 // is a relationship
 // Db Config is a Config
 class DbConfig extends Config { // child/derived/sub
-    String url;
+    private String url;
 
-    boolean validateUrl() {
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public boolean validateUrl() {
         return false;
     }
 }
 
 class NwConfig extends Config {
-    String protocol;
+    private String protocol;
 
-    boolean validateProtocol() {
+    public String getProtocol() {
+        return protocol;
+    }
+
+    public void setProtocol(String protocol) {
+        this.protocol = protocol;
+    }
+
+    public boolean validateProtocol() {
         return false;
     }
 }
@@ -63,19 +79,24 @@ public class InheritanceMain {
         DbConfig dbCfg = new DbConfig();
         // dbCfg.usNm = "abc";
         // dbCfg.pass = "abc";
-        cfg.setUsNm("abc");
-        cfg.setPass("pqr");
+        dbCfg.setUsNm("abc");
+        dbCfg.setPass("pqr");
+        
         dbCfg.validateUsNm();
         dbCfg.validatePass();
         dbCfg.validateUrl();
+        dbCfg.setUrl("http://google.com");
+        
 
         NwConfig nwCfg = new NwConfig();
         // nwCfg.usNm = "abc";
         // nwCfg.pass = "abc";
-        cfg.setUsNm("abc");
-        cfg.setPass("pqr");
+        dbCfg.setUsNm("abc");
+        dbCfg.setPass("pqr");
+
         nwCfg.validateUsNm();
         nwCfg.validatePass();
         nwCfg.validateProtocol();
+        nwCfg.setProtocol("http://");
     }
 }

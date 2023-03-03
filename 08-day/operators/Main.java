@@ -123,11 +123,59 @@ class Operator {
         res = !(a == b);
         System.out.println("👉 res = " + res);
     }
+
+    public void bitwise() {
+        System.out.println("🔥 Bitwise Operators 🔥");
+        int a = 10;
+        int res = 0;
+
+        System.out.println("✅ AND & ");
+        System.out.println("👉 a = " + a);
+        System.out.println("📌 a & 1");
+        res = a & 1;
+        System.out.println("👉 res = " + res);
+
+        System.out.println("✅ OR | ");
+        System.out.println("👉 a = " + a);
+        System.out.println("📌 a | 1");
+        res = a | 1;
+        System.out.println("👉 res = " + res);
+
+        System.out.println("✅ Right Shift >> ");
+        System.out.println("👉 a = " + a);
+        System.out.println("📌 a >> 1");
+        res = a >> 1;
+        System.out.println("👉 res = " + res);
+
+        System.out.println("✅ Left Shift << ");
+        System.out.println("👉 a = " + a);
+        System.out.println("📌 a << 1");
+        res = a << 1;
+        System.out.println("👉 res = " + res);
+
+        System.out.println("✅ XOR ^ ");
+        System.out.println("👉 a = " + a);
+        System.out.println("📌 a ^ 1");
+        res = a ^ 1;
+        System.out.println("👉 res = " + res);
+
+        System.out.println("✅ Not ~ ");
+        System.out.println("👉 a = " + a);
+        System.out.println("📌 ~a");
+        res = ~a;
+        System.out.println("👉 res = " + res);
+
+        System.out.println("✅ Unsigned right shift ~ ");
+        System.out.println("👉 a = " + a);
+        System.out.println("📌 a >>> 1");
+        res = a >>> 1;
+        System.out.println("👉 res = " + res);
+    }
 }
 
 public class Main {
     public static void main(String[] args) {
         Operator op = new Operator();
-        op.logical();
+        op.bitwise();
     }
 }

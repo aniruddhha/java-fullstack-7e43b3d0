@@ -25,12 +25,12 @@ class Circle extends Shape {
         this.rad = rad;
     }
 
-    double area() {
+    public double area() {
         System.out.println("In Circle Class");
         return rad * rad * 3.14;
     }
 
-    double pi() {
+    public double pi() {
         return 3.14;
     }
 }
@@ -50,8 +50,9 @@ public class PolymorphismMain {
 
         Shape sh1 = new Circle(89);
         sh1.area(); // In Shape/Circle
+        // sh1.pi();
 
-        //Circle cr1 = new Shape();
+        // Circle cr1 = new Shape(); error
         //cr1.area() //
     }
 }

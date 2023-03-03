@@ -6,7 +6,7 @@ class Operator {
         int a = 10;
         int b = 88;
 
-        System.out.println("Addition " + (a + b));
+        System.out.println("Addition " + (a + b)); // 1088
         System.out.println("Sutraction " + (a - b));
         System.out.println("Multiplication " + (a * b));
         System.out.println("Division " + (a / b));

@@ -171,11 +171,49 @@ class Operator {
         res = a >>> 1;
         System.out.println("👉 res = " + res);
     }
+
+    public void unary() {
+        System.out.println("🔥 Unary Operators 🔥");
+        int a = 10;
+       
+        System.out.println("✅ Pre Increment ++ ");
+        System.out.println("👉 a = " + a);
+        System.out.println("📌 ++a");
+        System.out.println("👉 res = " + (++a));
+        System.out.println("👉 a = " + a);
+
+        System.out.println("✅ Post Increment -- ");
+        System.out.println("👉 a = " + a);
+        System.out.println("📌 a++");
+        System.out.println("👉 res = " + (a++));
+        System.out.println("👉 a = " + a);
+
+        System.out.println("✅ Pre Decrement -- ");
+        System.out.println("👉 a = " + a);
+        System.out.println("📌 --a");
+        System.out.println("👉 res = " + (--a));
+        System.out.println("👉 a = " + a);
+
+        System.out.println("✅ Post Decrement ++ ");
+        System.out.println("👉 a = " + a);
+        System.out.println("📌 a--");
+        System.out.println("👉 res = " + (a--));
+        System.out.println("👉 a = " + a);
+    }
+
+    public void ternary() {
+        System.out.println("🔥 Ternary Operators 🔥");
+        int a = 10;
+
+        String num = a == 10 ? "TEN" : "Something Else";
+        System.out.println(num);
+    }
 }
 
 public class Main {
     public static void main(String[] args) {
         Operator op = new Operator();
-        op.bitwise();
+        op.unary();
+        op.ternary();
     }
 }

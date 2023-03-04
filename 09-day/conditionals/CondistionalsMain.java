@@ -1,5 +1,6 @@
-class Conditionals {
+import java.lang.invoke.CallSite;
 
+class Conditionals {
     public void basicIf() {
         int a = 10;
 
@@ -47,15 +48,45 @@ class Conditionals {
             System.out.println("Too High Vibrations");
         }
     }
+
+    public void basicSwitchCase() {
+        int day = 3;
+        String dayName = "";
+
+        switch(day) {
+            case 1 : 
+                dayName = "MON";
+                break;
+            case 2:
+                dayName = "TUE";
+                break;
+            case 3: 
+                dayName = "WED";
+                break;
+            case 4:
+                dayName = "THU";
+                break;
+            case 5:
+                dayName = "FRI";
+                break;
+            case 6:
+                dayName = "SAT";
+                break;
+            case 7:
+                dayName = "SUN";
+                break;
+            default:
+                dayName = "Invalid Day";
+                break;
+        }
+        System.out.println(dayName);
+    }
 }
 
 public class CondistionalsMain {
 
     public static void main(String[] args) {
         Conditionals cnd = new Conditionals();
-        cnd.basicIf();
-        cnd.ifElse();
-        cnd.ifElseLadder();
-        cnd.nestedIf();
+        cnd.basicSwitchCase();
     }
 }

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 import javax.sound.midi.Soundbank;
 import javax.sound.sampled.SourceDataLine;
 
@@ -49,13 +51,28 @@ class MinMax {
 
         return new Dtl(min, max, 0);
     }
+
+    public Dtl nthMinMax(int[] arr, int n) {
+        int[] sortedArr = arr;
+        Arrays.sort(sortedArr);
+
+        return new Dtl(
+            sortedArr[n - 1], 
+            sortedArr[sortedArr.length - n], 
+            n
+        );
+    }
 }
 
 public class MinMaxMain {
     public static void main(String[] args) {
         MinMax mm = new MinMax();
-        Dtl dt = mm.findMinMax(new int[] { 1, 3, 1, 78, 67, 23, 56, 90, 2, 45 } );   
-        System.out.println("Max number is "+dt.getMax());
-        System.out.println("Min number is "+dt.getMin());
+        Dtl dt1 = mm.findMinMax(new int[] { 1, 3, 1, 78, 67, 23, 56, 90, 2, 45 } );   
+        System.out.println("Max number is "+dt1.getMax());
+        System.out.println("Min number is "+dt1.getMin());
+
+        Dtl dtl2 = mm.nthMinMax(new int[] { 1, 3, 1, 78, 67, 23, 56, 90, 2, 45 }, 3);
+        System.out.println("" + dtl2.getNth() +" Minimum " + dtl2.getMin() );
+        System.out.println("" + dtl2.getNth() +" Maximum " + dtl2.getMax() );
     }   
 }

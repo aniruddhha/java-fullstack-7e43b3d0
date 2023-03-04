@@ -44,6 +44,7 @@ class Loops {
     public void setWaterSensor(int val) {
 
     }
+    
     public void nestedWhile() {
         boolean isRPMThreshold = true;
         int ltr = 70;

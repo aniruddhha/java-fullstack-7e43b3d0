@@ -1,5 +1,4 @@
 
-
 class Dt {
     private int a;
     private int b;
@@ -25,6 +24,7 @@ class Dt {
         this.b = b;
     }
 }
+
 class Swap {
     public Dt doSwap(int a, int b) {
         int c = a;

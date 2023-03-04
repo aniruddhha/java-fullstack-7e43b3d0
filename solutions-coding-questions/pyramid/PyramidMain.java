@@ -1,3 +1,4 @@
+package pyramid;
 
 
 class Pyramids {

@@ -8,7 +8,7 @@ class Loops {
     
     public void basicWhile() {
         int i = 0;
-        while(true) {
+        while(true) { // odd loops
             if(i > 10) break;
             else {
                 i++;

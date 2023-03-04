@@ -29,13 +29,43 @@ class Loops {
             System.out.println(i);
         }while(i < 10);
     }
+
+    public void nestedFor() {
+        for (int i = 0; i < 3; i++) {
+            // each statement will execute 3 times
+            for(int j = 0; j < 2; j++) {
+                // each statement will execute 2 times
+                System.out.println("i = "+i +" j = " +j);
+            }
+            // this for will execute for each iteration of i
+        }
+    }
+
+    public void setWaterSensor(int val) {
+
+    }
+    public void nestedWhile() {
+        boolean isRPMThreshold = true;
+        int ltr = 70;
+
+        while(isRPMThreshold) {
+
+            while(ltr < 100) {
+                // check water level by sensor value
+                ltr = 56;
+            }
+
+            do {
+                // set water level sensor
+                setWaterSensor(89);
+            } while(true);
+        }
+    }
 }
 
 public class LoopsMain {
     public static void main(String[] args) {
         Loops lp = new Loops();
-        // lp.basicFor();
-        // lp.basicWhile();
-        lp.basicDoWhile();
+        lp.nestedFor();
     }
 }

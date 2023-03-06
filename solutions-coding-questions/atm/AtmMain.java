@@ -95,9 +95,12 @@ public class AtmMain {
 
         AbcCard card3 = new AbcCard();
 
+        CardSwipable card4 = new AbcCard();
+
         Atm atm = new Atm();
         atm.swipe(card1);
         atm.swipe(card2);
         atm.swipe(card3);
+        atm.swipe(card4);
     }
 }

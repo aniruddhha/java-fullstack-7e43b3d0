@@ -86,6 +86,9 @@ class Atm {
 
 public class AtmMain {
     public static void main(String[] args) {
+        // the code is 70% complete
+        // you need to add rest of the details
+        
         PqrCard card1 = new PqrCard();
 
         XyzCard card2 = new XyzCard();

@@ -10,7 +10,19 @@ interface Light {
 }
 
 interface AllExternals extends Gps, Light {
-    
+
+    default void detect() {
+        System.out.println("static : Java 8 feature");
+    }
+
+    static void inspect() {
+        System.out.println("static : Java 8 feature");
+    }
+}
+
+@FunctionalInterface
+interface OnlyOne {
+    void onlyOne();
 }
 
 class Car implements Gps, Light {

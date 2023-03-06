@@ -1,8 +1,5 @@
 import java.util.Arrays;
 
-import javax.sound.midi.Soundbank;
-import javax.sound.sampled.SourceDataLine;
-
 class Dtl {
     
     private int min;
@@ -33,8 +30,6 @@ class Dtl {
     public void setNth(int nth) {
         this.nth = nth;
     } 
-
-    
 }
 
 class MinMax {
@@ -53,6 +48,9 @@ class MinMax {
     }
 
     public Dtl nthMinMax(int[] arr, int n) {
+
+        // this is incomplete code
+
         int[] sortedArr = arr;
         Arrays.sort(sortedArr);
 

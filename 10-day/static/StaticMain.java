@@ -23,6 +23,11 @@ class StaticDemo {
 
 public class StaticMain {
 
+    void doMain() {
+        main(null);
+        StaticMain.main(null);
+    }
+
     public static void main(String[] args) {
 
         StaticDemo.cnt++;

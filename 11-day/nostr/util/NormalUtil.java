@@ -1,15 +1,15 @@
 package util;
 
-import tool.PasteTool;
+// import tool.PasteTool;
 
 public class NormalUtil {
     
     public static void main(String[] args) {
         
-        PasteTool tool = new PasteTool();
+        tool.PasteTool tl = new tool.PasteTool();
         // tool.text = "this is text"; // private 
         // tool.path = "this is path"; // protected
-        tool.directory = "this is dir"; // public
+        tl.directory = "this is dir"; // public
         // tool.fileName = "this is fileName"; // no modifier
 
         ChildUtil tool1 = new ChildUtil();

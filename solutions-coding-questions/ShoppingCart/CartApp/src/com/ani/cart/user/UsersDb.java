@@ -8,7 +8,7 @@ public class UsersDb {
 
     // our users that we will create from users menu,
     // those users will be stored here
-    public static final User[] users = new User[5];    
+    private static final User[] users = new User[5];    
 
     public static int addNewUser(int id, String name) {
 
@@ -19,14 +19,13 @@ public class UsersDb {
 
         // check user availability
         int pos = isExists(id);
-        if(pos == -1) {
-            // supplied userid is fresh
-            User user = new User(id, name);
-            // we have reached this line means, there is space and user is fresh
-            users[emptyPos] = user;
-            return USER_SUCCESSFULLY_CREATED;
-        }
-        return USER_ALREADY_EXISTS;
+        if(pos != -1) return USER_ALREADY_EXISTS;
+      
+        // we have reached this line means, there is space and user is fresh
+        // supplied userid is fresh
+        User user = new User(id, name);
+        users[emptyPos] = user;
+        return USER_SUCCESSFULLY_CREATED;
     }
 
     public static User[] listUsers() {
@@ -36,7 +35,8 @@ public class UsersDb {
     private static int isExists(int id) {
         for ( int i = 0; i < users.length; i++  ) {
             User user = users[i];
-            if(user.getId() == id) return i; // already exists
+            if(user != null)
+                if(user.getId() == id) return i; // already exists
         }
         return -1; // supplied id is fresh
     }

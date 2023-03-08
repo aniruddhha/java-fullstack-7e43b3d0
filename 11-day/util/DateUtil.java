@@ -5,6 +5,9 @@ import tool.CopyTool;
 // import java.lang.System;
 // import java.lang.*;
 
+// behaviour of access modifiers normally 
+// behaviour of access modifiers inheritance
+
 public class DateUtil {
  
     public static void main(String[] args) {

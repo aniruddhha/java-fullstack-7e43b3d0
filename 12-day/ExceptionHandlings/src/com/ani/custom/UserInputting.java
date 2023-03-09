@@ -56,4 +56,28 @@ public class UserInputting {
 
         return 0;
     }
+
+    public int askForAmount() {
+        System.out.println("\n 👉 Whats Amount : ");
+        int amt = 0;
+        
+        try {
+            amt = scanner.nextInt();
+            try {
+                validateAmount(amt);
+            } catch (BadInputException e) {
+                throw e;
+            }
+        }catch(Exception ex) {
+            throw ex;
+        }   
+
+        return 89;
+    }
+
+    private void validateAmount(int amt) {
+        if(amt <= 0) {
+            throw new  BadInputException("❌ Invalid amount", "amount");
+        }
+    }
 }

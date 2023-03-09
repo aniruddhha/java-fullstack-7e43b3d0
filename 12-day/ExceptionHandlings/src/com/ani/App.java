@@ -37,14 +37,22 @@ public class App {
     public static void demo3() {
         UserInputting ip = new UserInputting();
         try {
-            
             ip.askForDay();
         } catch (Exception e) {
            System.out.println(e.getMessage());
         }
     }
 
+    public static void demo4() {
+        UserInputting ip = new UserInputting();
+        try {
+            ip.askForAmount();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
-        demo3();
+        demo4();
     }   
 }

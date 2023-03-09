@@ -1,15 +1,33 @@
 package com.ani.custom;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserInputting {
 
     private final Scanner scanner = new Scanner(System.in);
 
-    public void askForUserAge() {
-        System.out.println("\n 👉 Whats you age : ");    
-        int age = scanner.nextInt();
+    public int askForUserAge() {
+        System.out.println("\n 👉 Whats you age : ");
+        int age = 0;
+        
+        try {
+           age = scanner.nextInt();
+        }catch(InputMismatchException ex) {
+            age = 0;
+            System.out.println("\n ❌ Please Enter Numbers Only");
+        }    
+
         // age should not be negative 
-        // age should not be more 100 years
+
+        if(age < 0) {
+            throw new InvalidAgeException(" ❌ "+age +" Must be possitive ");
+        }
+        if(age > 100) {
+            throw new InvalidAgeException(" ❌ "+age +" Must not be greater than 100 ");
+        }
+        // age should not be more than 100 years
+
+        return age;
     }
 }

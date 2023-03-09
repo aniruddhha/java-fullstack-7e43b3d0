@@ -35,6 +35,22 @@ public class ExceptionDemo {
 
     public void demo4() {
         // ClassNotFoundException
-        Class.forName("CarUtil"); // loads the class
+        try {
+            // expected event is, it will load CarUtil class
+            // unexpected is CarUtil is not available
+            Class.forName("com.ani.CarUtil");   // 🫳 throw new ClassNotFoundException(); 👈 
+        } catch (Exception e/*🤌*/) {
+            System.out.println("❌ CarUtil class is not available");
+        } finally {
+            System.out.println("⌛️ I will execute in all cases");
+        }
+    }
+
+    public void demo5() {
+        while(true) {
+            while(true) {
+                new String();
+            }
+        }
     }
 }

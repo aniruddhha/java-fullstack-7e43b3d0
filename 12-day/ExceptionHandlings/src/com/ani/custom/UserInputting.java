@@ -7,7 +7,7 @@ public class UserInputting {
 
     private final Scanner scanner = new Scanner(System.in);
 
-    public int askForUserAge() {
+    public int askForUserAge() throws InvalidAgeException {
         System.out.println("\n 👉 Whats you age : ");
         int age = 0;
         
@@ -29,5 +29,12 @@ public class UserInputting {
         // age should not be more than 100 years
 
         return age;
+    }
+
+    public void createUserFromFile(String name) throws WrongFileFormatException {
+        if(name.contains(".xml")) {
+            throw new WrongFileFormatException("Unsuported File Format");
+        }
+        // save user to db
     }
 }

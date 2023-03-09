@@ -19,21 +19,22 @@ public class ExceptionDemo {
         System.out.println("Multiplication "+ res3);
 
         // division
-        int res4 = op1 / op2; // 10/0
+        int res4 = op1 / op2; // 10/0 ArithmaticException
         System.out.println("Division "+ res4);
     }
 
     public void demo2() {
         int[] arr = { 89, 90, 78 };
-        System.out.println(arr[9]);
+        System.out.println(arr[9]); // ArrayIndexOutOfBoundException
     }
 
     public void demo3() {
-        String str = null;
-        str.length();
+        String str = null; 
+        str.length(); // NullPointerException
     }
 
     public void demo4() {
+        // ClassNotFoundException
         Class.forName("CarUtil"); // loads the class
     }
 }

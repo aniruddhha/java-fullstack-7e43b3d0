@@ -1,4 +1,4 @@
-package com.ani;
+package com.ani.basics;
 
 import java.io.File;
 import java.io.FileNotFoundException;

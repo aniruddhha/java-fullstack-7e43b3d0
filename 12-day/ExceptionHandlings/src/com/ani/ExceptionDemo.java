@@ -71,4 +71,18 @@ public class ExceptionDemo {
             }
         }
     }
+
+    public void demo6(int a, int b) throws RuntimeException {
+
+        if( a < 8 || b > 40) {
+            throw new RuntimeException("Invalid Values");
+        }
+    }
+
+    public void demo7(int a, int b) throws Exception {
+
+        if( a < 8 || b > 40) {
+            throw new Exception("Invalid Values");
+        }
+    }
 }

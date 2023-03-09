@@ -3,6 +3,8 @@ package com.ani.custom;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import javax.management.RuntimeErrorException;
+
 public class UserInputting {
 
     private final Scanner scanner = new Scanner(System.in);
@@ -36,5 +38,22 @@ public class UserInputting {
             throw new WrongFileFormatException("Unsuported File Format");
         }
         // save user to db
+    }
+
+    public int askForDay() {
+
+        System.out.println("\n 👉 Whats Birth Day : ");
+        int day = 0;
+        
+        try {
+           day = scanner.nextInt();
+        }catch(InputMismatchException ex) {
+            // throw new RuntimeException("❌ any message", ex);
+            // throw ex;
+            String msg = ex.getMessage() + " -> " + "Do not enter text";
+            throw new BadInputException(msg, "age");
+        }    
+
+        return 0;
     }
 }

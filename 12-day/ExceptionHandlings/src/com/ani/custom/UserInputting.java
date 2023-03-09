@@ -66,9 +66,11 @@ public class UserInputting {
             try {
                 validateAmount(amt);
             } catch (BadInputException e) {
+                System.out.println("Inner try-catch");
                 throw e;
             }
         }catch(Exception ex) {
+            System.out.println("Outer try-catch");
             throw ex;
         }   
 

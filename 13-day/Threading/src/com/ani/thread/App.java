@@ -3,6 +3,9 @@ package com.ani.thread;
 import com.ani.thread.basics.ExcelReaderTask;
 import com.ani.thread.basics.ThreadOne;
 import com.ani.thread.basics.ThreadTwo;
+import com.ani.thread.itc.ItcHub;
+import com.ani.thread.itc.NumConsumer;
+import com.ani.thread.itc.NumProducer;
 import com.ani.thread.sync.GrammerChecker;
 import com.ani.thread.sync.ImpData;
 import com.ani.thread.sync.SpellingChecker;
@@ -45,6 +48,17 @@ public class App {
         }
 
         dt.currentCount();
+    }
+
+    public static void demo3() {
+
+        ItcHub hub = new ItcHub();
+
+        Runnable producer = new NumProducer(hub);
+        Thread t1 = new Thread(producer);
+
+        Runnable consumer = new NumConsumer(hub);
+        Thread t2 = new Thread(consumer);
     }
 
     public static void main(String[] args) throws Exception {

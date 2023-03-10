@@ -11,10 +11,18 @@ public class ImpData {
         }
     }
 
+    public synchronized void safeInc() {
+        count++;
+    }
+
     public void decrement() {
         synchronized(lock) {
             count--;
         }
+    }
+
+    public synchronized void safeDec() {
+        count--;
     }
 
     public void currentCount() {

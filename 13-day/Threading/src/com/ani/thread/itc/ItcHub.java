@@ -7,7 +7,7 @@ public class ItcHub {
     public synchronized void produce(int producedNumber) {
 
         // do I have already produced, and it is not consumed by cosumer ?
-        while(isNumberReady) {
+        if(isNumberReady) {
             System.out.println("👉 Waiting Consumer to consume already produced number");
             try {
                 wait(); // wait untill consumer consumes the number
@@ -25,7 +25,7 @@ public class ItcHub {
     public synchronized void consume() {
 
         // is number not produced and I am trying consume it ?
-        while(!isNumberReady) {
+        if(!isNumberReady) {
             System.out.println("👉 Producer have not produced number yet");
             try {
                 wait(); // wait until, producer produces the number

@@ -1,4 +1,4 @@
-package com.ani.thread;
+package com.ani.thread.basics;
 
 public class ExcelReaderTask implements Runnable {
 

@@ -59,10 +59,13 @@ public class App {
 
         Runnable consumer = new NumConsumer(hub);
         Thread t2 = new Thread(consumer);
+
+        t1.start();
+        t2.start();
     }
 
     public static void main(String[] args) throws Exception {
         System.out.println("🔥 Threading 🔥");
-        demo2();
+        demo3();
     }
 }

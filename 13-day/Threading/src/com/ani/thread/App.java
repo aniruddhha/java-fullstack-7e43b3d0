@@ -28,9 +28,11 @@ public class App {
 
         Runnable task1 = new SpellingChecker(dt);
         Thread t1 = new Thread(task1);
+        t1.setPriority(Thread.NORM_PRIORITY);
       
         Runnable task2 = new GrammerChecker(dt);
         Thread t2 = new Thread(task2);
+        t2.setPriority(Thread.MAX_PRIORITY);
 
         t1.start();
         t2.start();

@@ -6,6 +6,13 @@ public class ThreadOne extends Thread {
         super.run();
 
         // this code will be executed by thread
+
+        helper();
+    }
+
+    private void helper() {
+
     }
 }
+
 

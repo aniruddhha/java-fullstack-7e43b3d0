@@ -6,9 +6,13 @@ public class App {
         ThreadOne to = new ThreadOne();
         to.start();
 
-        Runnable tt = new ThreadTwo();
-        Thread t1 = new Thread(tt);
+        Runnable task1 = new ThreadTwo();
+        Thread t1 = new Thread(task1);
         t1.start();
+
+        Runnable task2 = new ExcelReaderTask();
+        Thread t2 = new Thread(task2);
+        t2.start();
     }
 
 

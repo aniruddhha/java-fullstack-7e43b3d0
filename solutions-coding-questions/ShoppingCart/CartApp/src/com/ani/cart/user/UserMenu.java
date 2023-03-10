@@ -1,12 +1,15 @@
 package com.ani.cart.user;
 
-import java.util.Scanner;
+import com.ani.cart.input.CartDataInput;
 
 public class UserMenu {
-    private Scanner scanner;
+   
+    private final CartDataInput ip;
+    private final UserController controller;
 
     public UserMenu() {
-        scanner = new Scanner(System.in);
+        ip = new CartDataInput();
+        controller = new UserController();
     }
 
     private void displayMenu() {
@@ -26,9 +29,7 @@ public class UserMenu {
         .append("3. Select User")
         .append("\n")
         .append("4. Exit")
-        .append("\n")
-        .append("\n")
-        .append("👉 Enter your Choice : ");
+        .append("\n");
 
         System.out.println(builder.toString());
     }
@@ -37,7 +38,7 @@ public class UserMenu {
 
         while(true) {
             displayMenu();
-            int ch = scanner.nextInt();
+            int ch = ip.askForUserChoice();
 
             if(ch >= 4 ) {
                 System.out.println("\n 🙏 Thanks for using our services");
@@ -45,32 +46,17 @@ public class UserMenu {
             } else {
                 if(ch == 1) {
                     System.out.println("\n 👏 You selected New User \n");
-
-                    System.out.println("\n 👉 Enter User Id: ");
-                    int id = scanner.nextInt();
-
-                    System.out.println("\n 👉 Enter User Name: ");
-                    String name = scanner.next();
-
-                    int sts = UsersDb.addNewUser(id, name);
-
-                    if(sts == UsersDb.NO_MORE_SPACE) {
-                        System.out.println("\n ❌ There is no more space ");
-                    }
-                    else if( sts == UsersDb.USER_ALREADY_EXISTS) {
-                        System.out.println("\n ❌ User Already Exists ");
-                    } else {
-                        System.out.println("\n ✅ User Successfully Created ");
+                    try {
+                        int id = ip.askForId();
+                        String name = ip.askForName();
+                        controller.createNewUser(id, name);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
                     }
 
                 } else if(ch == 2) {
                     System.out.println(" \n 👏 You selected List users \n ");
-
-                    User[] users = UsersDb.listUsers();
-                    for( User user : users) {
-                        System.out.println("\n 👉 Id " + user.getId() +" Name "+user.getName());
-                    }
-
+                    controller.listAllUsers();
                 } else  {
                     System.out.println("\n 👏 You selected Select User \n");
                 } 

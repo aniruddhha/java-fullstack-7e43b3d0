@@ -1,6 +1,5 @@
 package com.ani.cart;
 
-import com.ani.cart.user.User;
 import com.ani.cart.user.UserMenu;
 
 public class App {

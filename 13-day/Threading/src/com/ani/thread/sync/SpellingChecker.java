@@ -1,4 +1,4 @@
-package com.ani.thread.itc;
+package com.ani.thread.sync;
 
 public class SpellingChecker implements Runnable {
 

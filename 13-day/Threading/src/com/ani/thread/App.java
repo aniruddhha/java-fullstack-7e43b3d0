@@ -3,9 +3,9 @@ package com.ani.thread;
 import com.ani.thread.basics.ExcelReaderTask;
 import com.ani.thread.basics.ThreadOne;
 import com.ani.thread.basics.ThreadTwo;
-import com.ani.thread.itc.GrammerChecker;
-import com.ani.thread.itc.ImpData;
-import com.ani.thread.itc.SpellingChecker;
+import com.ani.thread.sync.GrammerChecker;
+import com.ani.thread.sync.ImpData;
+import com.ani.thread.sync.SpellingChecker;
 
 public class App {
 

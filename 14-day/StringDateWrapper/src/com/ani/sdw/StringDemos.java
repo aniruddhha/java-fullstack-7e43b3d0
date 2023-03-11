@@ -20,4 +20,38 @@ public class StringDemos {
         System.out.println(" PP Equals NM = " + pp.equals(nm));
         System.out.println(" PP == NM " + (pp == nm));
     }
+
+    public void demo3() {
+        String nm = "abcpqr";
+
+        System.out.println("👉 Original "+ nm);
+        System.out.println("👉 Length "+ nm.length());
+        System.out.println("👉 0th "+ nm.charAt(0));
+        System.out.println("👉 Sub String(0, 3) "+ nm.substring(0, 3));
+        System.out.println("👉 Upper "+ nm.toUpperCase());
+        System.out.println("👉 Lower "+ nm.toLowerCase());
+
+        String address = "street food";
+        System.out.println(address + " -> " + nm);
+        System.out.println(address.concat(nm));
+
+        char[] arr = nm.toCharArray();
+        for( char c : arr ) {
+            System.out.println(c);
+        }
+    }
+
+    public void demo4() {
+        String nm = "a->b->c->d->e->f"; // abcdef
+        System.out.println("👉 Original : " + nm);
+        String[] arr = nm.split("->"); // [ a, b, c ,d, e, f ]
+
+        System.out.println("👉 Converted to Array ");
+        for(String s : arr) {
+            System.out.println(s);
+        }
+        
+        String joined = String.join("", arr); // 
+        System.out.println("👉 Joined : "+joined);
+    }
 }

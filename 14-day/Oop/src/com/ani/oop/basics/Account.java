@@ -53,6 +53,4 @@ public class Account {
     public String toString() {
         return "Account [acId=" + acId + ", acNm=" + acNm + ", isActive=" + isActive + "]";
     }
-
-    
 }

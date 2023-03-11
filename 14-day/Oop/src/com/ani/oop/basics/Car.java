@@ -10,13 +10,14 @@ public class Car {
 
     public Car(int speed) {
 
-        this(78.90);
-        
+        this(78.90); // call the constructor
+
         this.speed = speed;
         // class variable = local variable
         //car1.speed = speed
         //car2.speed = speed
     }
+}
 
 
 

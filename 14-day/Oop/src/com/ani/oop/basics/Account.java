@@ -5,6 +5,7 @@ public class Account{
     private int acId;
     private String acNm;
     private boolean isActive;
+    protected String branch;
     
     public Account() {
         
@@ -52,5 +53,9 @@ public class Account{
     @Override
     public String toString() {
         return "Account [acId=" + acId + ", acNm=" + acNm + ", isActive=" + isActive + "]";
+    }
+
+    public void activateAccount() {
+
     }
 }

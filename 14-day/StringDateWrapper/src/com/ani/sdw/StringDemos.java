@@ -39,6 +39,10 @@ public class StringDemos {
         for( char c : arr ) {
             System.out.println(c);
         }
+
+        System.out.println("👉 Equal Ignore Case : " + nm.equalsIgnoreCase("ABCPQR"));
+        String st = "abc              ";
+        System.out.println("👉 Trim " + st.trim());
     }
 
     public void demo4() {

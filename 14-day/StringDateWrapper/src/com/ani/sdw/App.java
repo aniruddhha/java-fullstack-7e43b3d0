@@ -16,8 +16,8 @@ public class App {
 
     public static void demo2() {
         StringDemos sd = new StringDemos();
-        // sd.demo3();
-        sd.demo4();
+        sd.demo3();
+        // sd.demo4();
     }
     public static void main(java.lang.String[] args) throws java.lang.Exception {
         java.lang.System.out.println("🔥 String, Date, Warapper 🔥");

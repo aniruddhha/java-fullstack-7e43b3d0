@@ -1,6 +1,20 @@
 package com.ani.oop.basics;
 
-public class Account {
+public class Account{
+
+    private int acId;
+    private String acNm;
+    private boolean isActive;
+    
+    public Account() {
+        
+    }
+
+    public Account(int acId, String acNm, boolean isActive) {
+        this.acId = acId;
+        this.acNm = acNm;
+        this.isActive = isActive;
+    }
     
     @Override
     public int hashCode() {
@@ -35,20 +49,6 @@ public class Account {
         return true;
     }
 
-    private int acId;
-    private String acNm;
-    private boolean isActive;
-    
-    public Account() {
-        
-    }
-
-    public Account(int acId, String acNm, boolean isActive) {
-        this.acId = acId;
-        this.acNm = acNm;
-        this.isActive = isActive;
-    }
-    
     @Override
     public String toString() {
         return "Account [acId=" + acId + ", acNm=" + acNm + ", isActive=" + isActive + "]";

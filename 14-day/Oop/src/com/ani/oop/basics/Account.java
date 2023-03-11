@@ -1,6 +1,6 @@
 package com.ani.oop.basics;
 
-public class Account{
+public class Account {
 
     private int acId;
     private String acNm;

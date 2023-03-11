@@ -58,4 +58,10 @@ public class StringDemos {
         String joined = String.join("", arr); // 
         System.out.println("👉 Joined : "+joined);
     }
+
+    public void demo5() {
+        String nm = "my name is abc, I am pwr";
+        System.out.println("👉 Original : "+nm);
+        System.out.println("👉 Contains Abc : "+nm.contains("abc"));
+    }
 }

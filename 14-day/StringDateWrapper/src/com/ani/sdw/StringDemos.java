@@ -17,7 +17,7 @@ public class StringDemos {
         System.out.println(" NM == AB " + (nm == ab));
 
         String pp = "abc"; // created memory pool
-        System.out.println("PP Equals NM = " + pp.equals(nm));
-        System.out.println("PP == NM " + (pp == nm));
+        System.out.println(" PP Equals NM = " + pp.equals(nm));
+        System.out.println(" PP == NM " + (pp == nm));
     }
 }

@@ -5,6 +5,7 @@ public class StandardDeviation {
     private double[] arr;
     private double mean;
     private double sd = 0;
+    int i;
 
     public StandardDeviation(double[] arr) {
         if(arr == null) {
@@ -12,7 +13,14 @@ public class StandardDeviation {
         }
         this.arr = arr;
 
+        i = cal();
+        i = 0;
+        
         mean = mn();
+    }
+
+    private int cal() {
+        return 0;
     }
 
     private double mn() {

@@ -1,5 +1,6 @@
 package com.ani.cart.input;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.ani.cart.exception.InvalidInputException;
@@ -16,7 +17,8 @@ public class CartDataInput {
         int num = 0;
         try {
             num = scanner.nextInt();
-        } catch (Exception e) {
+        } catch (InputMismatchException e) {
+            scanner.nextLine();
             throw new InvalidInputException("❌ Please Enter Number Only");
         }
         return num;

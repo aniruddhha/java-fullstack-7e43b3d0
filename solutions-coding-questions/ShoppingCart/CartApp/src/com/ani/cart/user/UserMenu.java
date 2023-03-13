@@ -38,8 +38,17 @@ public class UserMenu {
 
         while(true) {
             displayMenu();
-            int ch = ip.askForUserChoice();
 
+            int ch = 0;
+            try {
+                ch = ip.askForUserChoice();
+            } catch (Exception e) {
+                ch = 0;
+            }
+
+            if(ch == 0) {
+                System.out.println("\n 👏 Enter Numbers Only \n");
+            }
             if(ch >= 4 ) {
                 System.out.println("\n 🙏 Thanks for using our services");
                 break;
@@ -57,7 +66,7 @@ public class UserMenu {
                 } else if(ch == 2) {
                     System.out.println(" \n 👏 You selected List users \n ");
                     controller.listAllUsers();
-                } else  {
+                } else  if(ch == 3) {
                     System.out.println("\n 👏 You selected Select User \n");
                 } 
             }

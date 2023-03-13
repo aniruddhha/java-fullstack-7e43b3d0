@@ -2,6 +2,7 @@ package con.ani.solutions;
 
 import con.ani.solutions.deviation.StandardDeviation;
 import con.ani.solutions.string.LongestSubstring;
+import con.ani.solutions.string.RemChar;
 import con.ani.solutions.string.RotationEqaulity;
 
 public class App {
@@ -64,6 +65,19 @@ public class App {
         System.out.println(sts5);
     }
 
+    public static void remChar() {
+
+        RemChar rc = new RemChar();
+        
+        System.out.println("Answer (abcpqr)"+ rc.remChar("abcxpqr", "x"));
+        System.out.println("There is no x in string"+ rc.remChar("abcpqr", "x"));
+        System.out.println("Invalid Strinf"+ rc.remChar("", "x"));
+        System.out.println("Specify the character to be removed"+ rc.remChar("abcxpqr", ""));
+        System.out.println("Answer (ab) "+ rc.remChar("axb", "ab"));
+        System.out.println("Answer (nothing remains) "+ rc.remChar("x", "x"));
+        System.out.println("Answer (x) "+ rc.remChar("xx", "x"));
+        System.out.println("Answer (abcpqr)"+ rc.remChar("axbcxpqr", "x"));
+    }
     public static void main(String[] args) throws Exception {
         System.out.println("🔥 General Solutions 🔥");
        rotationEquality();

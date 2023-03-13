@@ -33,9 +33,9 @@ public class LongestSubstring {
 
         System.out.println();
 
-        // if (currentSubstring.length() > longestSubstring.length()) {
-        //     longestSubstring = currentSubstring;
-        // }
+        if (currentSubstring.length() > longestSubstring.length()) {
+            longestSubstring = currentSubstring;
+        }
 
         return longestSubstring;
     }

@@ -26,7 +26,7 @@ public class App {
         LongestSubstring ls = new LongestSubstring();
         // System.out.println("Longest " + ls.longestSubString("abcabbccbbr") );
         // ls.longestSubString("rarxbzatyrqw");
-        System.out.println("Longest " + ls.longestSubString("abca") );
+        System.out.println("Longest " + ls.longestSubString("dfehiejfd") );
     }
 
     public static void enhancedFor() {
@@ -66,6 +66,6 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         System.out.println("🔥 General Solutions 🔥");
-        longestSubString();
+       rotationEquality();
     }
 }

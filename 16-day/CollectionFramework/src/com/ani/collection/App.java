@@ -3,7 +3,7 @@ public class App {
 
     public static void collectionDemo() {
         CollectionDemo cd = new CollectionDemo();
-        cd.demo5();
+        cd.demo8();
     }
 
     public static void main(String[] args) throws Exception {

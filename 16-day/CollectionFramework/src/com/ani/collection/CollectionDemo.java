@@ -255,4 +255,43 @@ public class CollectionDemo {
         System.out.println(reversed);
     }
 
+    public void demo8() {
+        Map<Integer, String> map = new HashMap<>();
+
+        System.out.println("✅ Add ");
+        map.put(1, "abc");
+        map.put(2, "pqr");
+        map.put(2, "lmn");
+        map.put(3, null);
+        map.put(null, "uytut");
+        System.out.println(map);
+
+        System.out.println("✅ Aceess ");
+        Set<Integer> keys = map.keySet();
+        System.out.println("👇 Keys");
+        System.out.println(keys);
+
+        System.out.println("👇 Values");
+        Collection<String> values = map.values();
+        System.out.println(values);
+
+        Set<Map.Entry<Integer, String>> entries = map.entrySet();
+        
+        for(Map.Entry<Integer, String> entry :  entries) {
+            Integer key = entry.getKey();
+            String value = entry.getValue();
+            System.out.println("Key  "+key +" Value "+value);
+        }
+
+        String nm = map.get(1);
+        System.out.println("👉 Name "+ nm);
+
+        System.out.println("✅ Update ");
+        map.replace(2, "bbb");
+        System.out.println(map);
+
+        System.out.println("✅ Remove ");
+        map.remove(null);
+        System.out.println(map);
+    }
 }

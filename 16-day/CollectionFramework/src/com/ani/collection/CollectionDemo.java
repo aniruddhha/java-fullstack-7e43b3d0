@@ -13,9 +13,11 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.NavigableSet;
 import java.util.Set;
 import java.util.SortedSet;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class CollectionDemo {
@@ -256,7 +258,9 @@ public class CollectionDemo {
     }
 
     public void demo8() {
-        Map<Integer, String> map = new HashMap<>();
+        // Map<Integer, String> map = new HashMap<>();
+        // HashMap<Integer, String> map = new HashMap<>();
+        LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
 
         System.out.println("✅ Add ");
         map.put(1, "abc");
@@ -276,7 +280,6 @@ public class CollectionDemo {
         System.out.println(values);
 
         Set<Map.Entry<Integer, String>> entries = map.entrySet();
-        
         for(Map.Entry<Integer, String> entry :  entries) {
             Integer key = entry.getKey();
             String value = entry.getValue();
@@ -293,5 +296,30 @@ public class CollectionDemo {
         System.out.println("✅ Remove ");
         map.remove(null);
         System.out.println(map);
+    }
+
+    public void demo9() {
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        map.put(99, 1);
+        map.put(4, 10);
+        // map.put(null, 199);
+        map.put(12, null);
+        map.put(1, 1);
+        map.put(4, 78);
+        System.out.println(map);
+
+        System.out.println("✅ Access");
+        Integer fstKey = map.firstKey();
+        System.out.println("👉 First : "+fstKey);
+
+        Integer lstKey = map.lastKey();
+        System.out.println("👉 Last : "+lstKey);
+
+        Integer lowerKey = map.lowerKey(15);
+        System.out.println("👉 Lower : "+lowerKey);
+
+        Integer higherKey = map.higherKey(15);
+        System.out.println("👉 Higher : "+higherKey);
+
     }
 }

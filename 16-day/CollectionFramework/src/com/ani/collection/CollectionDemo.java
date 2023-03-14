@@ -1,12 +1,22 @@
 package com.ani.collection;
 
 import java.util.Vector;
+
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
+import java.util.NavigableSet;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class CollectionDemo {
 
@@ -147,4 +157,102 @@ public class CollectionDemo {
         String el2 = names.peek();
         System.out.println(el2);
     }
+
+    public void demo5() {
+        // Set<String> names = new HashSet<>();
+        // HashSet<String> names = new HashSet<>();
+        LinkedHashSet<String> names = new LinkedHashSet<>();
+
+        System.out.println("✅ Add");
+        names.add("xyz");
+        names.add(null);
+        names.add("abc");
+        names.add("pqr");
+        names.add("lmn");
+        names.add("pqr");
+        names.add(null);
+       
+        System.out.println(names);
+
+        System.out.println("✅ Remove");
+        names.remove("pqr");
+        System.out.println(names);
+
+        System.out.println("✅ Get");
+        System.out.println("❌ we dont have this operation");
+
+        System.out.println("✅ Iterate");
+        Iterator<String> it = names.iterator();
+        while(it.hasNext()) {
+            String el = it.next();
+            System.out.println(el);
+        }
+
+        System.out.println("✅ Update");
+        System.out.println("❌ we dont have this operation");
+    }
+
+    public void demo6() {
+        SortedSet<String> names = new TreeSet<>();
+
+        System.out.println("✅ Add");
+        names.add("xyz");
+        names.add("abc");
+        names.add("lmn");
+        names.add("jkl");
+        // names.add(null); // you will get null pointer exception
+        names.add("123");
+        names.add("abc");
+        System.out.println(names);
+
+        System.out.println("✅ Access Specific to SortedSet");
+        String fst = names.first();
+        System.out.println("First " + fst);
+        String lst = names.last();
+        System.out.println("Last "+ lst);
+
+        System.out.println("✅ Sub set"); 
+        SortedSet<String> sub1 = names.headSet("jkl");
+        System.out.println(sub1);
+
+        SortedSet<String> sub2 = names.subSet("abc", "lmn");
+        System.out.println(sub2);
+    }
+
+    public void demo7() {
+        TreeSet<Integer> names = new TreeSet<>();
+
+        System.out.println("✅ Add");
+        names.add(999);
+        names.add(798);
+        names.add(342);
+        names.add(907);
+        // names.add(null);
+        names.add(325);
+        names.add(219);
+        names.add(89);
+        names.add(798);
+        names.add(291);
+        System.out.println(names);
+
+        System.out.println("✅ Access");
+        int nm1 = names.last();
+        System.out.println("Last "+ nm1);
+        int nm2 = names.first();
+        System.out.println("First "+ nm2);
+        int nm4 = names.lower(657);
+        System.out.println("Lower " + nm4);
+        int nm5 = names.higher(657);
+        System.out.println("Higher " + nm5);
+
+        System.out.println("✅ Poll");
+        int nm3 = names.pollFirst();
+        System.out.println("Removed " + nm3);
+        System.out.println(names);
+
+        System.out.println("✅ Descending");
+        NavigableSet<Integer> reversed = names.descendingSet();
+        System.out.println(reversed);
+    }
+
 }

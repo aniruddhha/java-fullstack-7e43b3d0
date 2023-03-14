@@ -1,5 +1,6 @@
 package con.ani.solutions;
 
+import con.ani.solutions.collections.CharacterCount;
 import con.ani.solutions.deviation.StandardDeviation;
 import con.ani.solutions.string.LongestSubstring;
 import con.ani.solutions.string.RemChar;
@@ -85,6 +86,18 @@ public class App {
         System.out.println("Answer (x) "+ rc.remChar("xx", "x"));
         System.out.println("Answer (abcpqr)"+ rc.remChar("axbcxpqr", "x"));
     }
+    
+    public static void countChars() {
+        CharacterCount cc = new CharacterCount();
+        String op1 = cc.countChars("aaatttaeee");
+        String sts1 = op1.equals("a4,t3,e3") ? "✅ Correct " : "❌ Wrong";
+        System.out.println(sts1);
+
+        String op2 = cc.countChars("qwqwwwqw");
+        String sts2 = op2.equals("q3,w5") ? "✅ Correct " : "❌ Wrong";
+        System.out.println(sts2);
+    }
+
     public static void main(String[] args) throws Exception {
         System.out.println("🔥 General Solutions 🔥");
     //    rotationEquality();

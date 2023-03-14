@@ -1,5 +1,6 @@
 package com.ani.collection;
 
+import java.util.Vector;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Collection;
@@ -63,7 +64,8 @@ public class CollectionDemo {
     public void demo3() {
         // List<Integer> numbers = new ArrayList<>();
         // ArrayList<Integer> numbers = new ArrayList<>();
-        LinkedList<Integer> numbers = new LinkedList<>();
+        // LinkedList<Integer> numbers = new LinkedList<>();
+        Vector<Integer> numbers = new Vector<>();
 
         System.out.println("✅ Add");
         numbers.add(124);

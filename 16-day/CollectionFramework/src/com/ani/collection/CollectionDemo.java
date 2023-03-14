@@ -2,7 +2,6 @@ package com.ani.collection;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Iterator;
 
 public class CollectionDemo {
@@ -22,6 +21,7 @@ public class CollectionDemo {
         coll.add(null);
         coll.add("tuv");
         coll.add(null);
+        System.out.println(coll);
 
         // Iterating over the collection using iterator
         Iterator<String> it = coll.iterator();
@@ -55,5 +55,7 @@ public class CollectionDemo {
         coll.removeAll(subColl);
         coll.containsAll(subColl);
         coll.retainAll(subColl);
+
+        
     }
 }

@@ -39,4 +39,27 @@ public class LongestSubstring {
 
         return longestSubstring;
     }
+
+    public String longest(String input) {
+        //dfehiejfd
+
+        String longestString = "";
+
+        for (int i = 0 ; i < input.length()-1 ; i++) {
+            char curCh = input.charAt(i);
+
+            String sub = input.substring(i+1);
+            System.out.println("Cur CH -> "+curCh+" Sub -> "+ sub +" -> " + sub.contains(""+curCh) +" Long -> "+longestString);
+            if(!sub.contains(""+curCh)) {
+                if(sub.length() >= longestString.length())
+                    longestString = curCh + sub;
+            } else {
+                if(longestString.contains(""+curCh)) {
+                    int ind = longestString.indexOf("" + curCh);
+                    longestString = longestString.substring(0, ind) + curCh;
+                }
+            }
+        }
+        return longestString;
+    }   
 }

@@ -27,7 +27,14 @@ public class App {
         LongestSubstring ls = new LongestSubstring();
         // System.out.println("Longest " + ls.longestSubString("abcabbccbbr") );
         // ls.longestSubString("rarxbzatyrqw");
-        System.out.println("Longest " + ls.longestSubString("dfehiejfd") );
+        // hiejfd
+        // System.out.println("Longest " + ls.longestSubString("dfehiejfd") );
+        // ls.longest("dfehiejfd");
+        // ls.longest("dfehiejfd");
+        // System.out.println("Longest " + ls.longest("dfehiejfd")); // hiejfd
+        // System.out.println("Longest " + ls.longest("abcc")); // abc
+        System.out.println("Longest " + ls.longestSubString("abcabcrxytab") );
+        // System.out.println("Longest " + ls.longest("abcabbccbbr") );
     }
 
     public static void enhancedFor() {
@@ -80,6 +87,7 @@ public class App {
     }
     public static void main(String[] args) throws Exception {
         System.out.println("🔥 General Solutions 🔥");
-       rotationEquality();
+    //    rotationEquality();
+    longestSubString();
     }
 }

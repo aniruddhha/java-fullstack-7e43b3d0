@@ -8,7 +8,8 @@ public class App {
 
     public static void fileDemos() {
         FileHandling fh = new FileHandling();
-        fh.demo1();
+        fh.demo4();
+        fh.demo5();
     }
 
     public static void main(String[] args) throws Exception {

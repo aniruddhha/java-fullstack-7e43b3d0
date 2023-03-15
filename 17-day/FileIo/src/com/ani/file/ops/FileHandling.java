@@ -1,7 +1,11 @@
 package com.ani.file.ops;
 
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
 
 public class FileHandling {
 
@@ -40,5 +44,52 @@ public class FileHandling {
         file.getUsableSpace();
     }
 
-    
+    public void demo3() {
+
+        File file = new File("files/test2/abc.txt");
+        Writer writer = null;
+        try {
+            writer = new FileWriter(file);
+            writer.write("This is first hello word 😀😀😀");
+           
+        } catch (IOException e) {
+            System.out.println("❌ Problem in creating/writing file");
+        }finally {
+            try {
+                writer.close();
+            } catch (IOException e) {
+                System.out.println("❌ Problem in closing file");
+            }
+        }
+    }
+
+    public void demo4() {
+        File file = new File("files/test2/abc.txt");
+        try (Writer writer = new FileWriter(file)) {
+            writer.write("This is first hello word 😀😀😀");
+        } catch (IOException e) {
+            System.out.println("❌ Problem in creating/writing file");
+        }
+    }
+
+    public void demo5() {
+        File file = new File("files/test2/abc.txt");
+
+        try (Reader reader = new FileReader(file)) {
+            StringBuilder builder = new StringBuilder();
+            
+            // StringBuffer buffer  = new StringBuffer();
+            // String str = "";
+
+            while(true) {
+                int ch = reader.read();
+                if(ch == -1) break;
+                // str += String.valueOf(ch); // new string object every time
+                builder.append((char)ch);
+            }
+            System.out.println(builder.toString());
+        } catch (IOException e) {
+            System.out.println("❌ Problem in creating/writing file");
+        }
+    }
 }

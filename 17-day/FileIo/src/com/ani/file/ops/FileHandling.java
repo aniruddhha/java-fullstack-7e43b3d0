@@ -1,5 +1,7 @@
 package com.ani.file.ops;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -125,5 +127,43 @@ public class FileHandling {
             System.out.println("❌ Trouble in working file");
         }
     }
-    
+   
+    public void demo8() {
+        Long id = 10L;
+        String name = "abc";
+        Boolean isEmp = true;
+        Double sal = 78.90d;
+
+        final File file = new File("files/test4/abc.dat");
+        try(
+            final FileOutputStream fos = new FileOutputStream(file);
+            final DataOutputStream dos = new DataOutputStream(fos)
+        ) {
+            dos.writeLong(id);
+            dos.writeUTF(name);
+            dos.writeBoolean(isEmp);
+            dos.writeDouble(sal);
+        } catch(IOException e) {
+            System.out.println("❌ Unable to write the data");
+        }
+    }
+
+    public void demo9() {
+        final File file = new File("files/test4/abc.dat");
+        try (
+            final FileInputStream fis = new FileInputStream(file);
+            final DataInputStream dis = new DataInputStream(fis);
+        ) {
+           Long id = dis.readLong();
+           String name = dis.readUTF();
+           boolean isEmp = dis.readBoolean();
+           double sal = dis.readDouble();
+           System.out.println("👉 Id "+ id);
+           System.out.println("👉 Name "+ name);
+           System.out.println("👉 Is Emp "+ isEmp);
+           System.out.println("👉 Salary "+ sal);
+        } catch (IOException e) {
+            System.out.println("❌ Unable to read the data");
+        }
+    }
 }

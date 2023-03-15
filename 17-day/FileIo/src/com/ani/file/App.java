@@ -1,15 +1,13 @@
 package com.ani.file;
 
-import java.util.logging.FileHandler;
-
 import com.ani.file.ops.FileHandling;
 
 public class App {
 
     public static void fileDemos() {
         FileHandling fh = new FileHandling();
-        fh.demo6();
-        fh.demo7();
+        fh.demo8();
+        fh.demo9();
     }
 
     public static void main(String[] args) throws Exception {

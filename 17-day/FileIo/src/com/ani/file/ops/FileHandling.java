@@ -1,11 +1,17 @@
 package com.ani.file.ops;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.Reader;
 import java.io.Writer;
+
+import org.xml.sax.InputSource;
 
 public class FileHandling {
 
@@ -77,7 +83,7 @@ public class FileHandling {
 
         try (Reader reader = new FileReader(file)) {
             StringBuilder builder = new StringBuilder();
-            
+
             // StringBuffer buffer  = new StringBuffer();
             // String str = "";
 
@@ -92,4 +98,32 @@ public class FileHandling {
             System.out.println("❌ Problem in creating/writing file");
         }
     }
+
+    public void demo6() {
+        final File file = new File("files/test3/abc.txt");
+        try(final OutputStream out = new FileOutputStream(file)) {
+            String dt = "hello word, first operation 😀";
+            out.write(dt.getBytes());
+        }catch(IOException e) {
+            System.out.println("❌ Trouble in working file");
+        }
+    }
+
+    public void demo7() {
+        final File file = new File("files/test3/abc.txt");
+        try(final InputStream in = new FileInputStream(file)) {
+
+            StringBuilder builder = new StringBuilder();
+
+            while(true) {
+                int ch = in.read();
+                if(ch == -1) break;
+                builder.append((char)ch);
+            }
+            System.out.println(builder.toString());
+        }catch(IOException e) {
+            System.out.println("❌ Trouble in working file");
+        }
+    }
+    
 }

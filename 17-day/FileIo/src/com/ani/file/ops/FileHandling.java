@@ -9,6 +9,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.Reader;
 import java.io.Writer;
@@ -164,6 +166,40 @@ public class FileHandling {
            System.out.println("👉 Salary "+ sal);
         } catch (IOException e) {
             System.out.println("❌ Unable to read the data");
+        }
+    }
+
+    public void demo10() {
+        final Car car = new Car(10, "abc", false);
+
+        final File file = new File("files/test5/car.dat");
+
+        try( 
+            final FileOutputStream fos = new FileOutputStream(file);
+            final ObjectOutputStream oos = new ObjectOutputStream(fos);
+        ){ 
+            oos.writeObject(car);
+         }
+        catch(IOException e) {
+            e.printStackTrace();
+            System.out.println("❌ Problem in writing file");
+        }
+    }
+
+    public void demo11() {
+        final File file = new File("files/test5/car.dat");
+
+        try( 
+            final FileInputStream fis = new FileInputStream(file);
+            final ObjectInputStream ois = new ObjectInputStream(fis);
+        ){ 
+           Car car = (Car)ois.readObject();
+           System.out.println("✅ Data Read");
+           System.out.println(car);
+         }
+        catch(IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            System.out.println("❌ Problem in writing file");
         }
     }
 }

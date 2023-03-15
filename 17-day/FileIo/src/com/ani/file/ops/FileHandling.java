@@ -1,5 +1,7 @@
 package com.ani.file.ops;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -14,8 +16,6 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.Reader;
 import java.io.Writer;
-
-import org.xml.sax.InputSource;
 
 public class FileHandling {
 
@@ -200,6 +200,41 @@ public class FileHandling {
         catch(IOException | ClassNotFoundException e) {
             e.printStackTrace();
             System.out.println("❌ Problem in writing file");
+        }
+    }
+
+    public void demo12() {
+
+        final File file = new File("files/test6/abc.txt");
+
+        try (
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw)
+        ) {
+            bw.write("Hello Word Using Buffering");
+        } catch (IOException e) {
+            System.out.println("❌ Something Bad Happened "+ e.getMessage());
+        }
+    }
+
+    public void demo13() {
+        final File file = new File("files/test6/abc.txt");
+        
+        try(
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+        ) {
+            StringBuilder sb = new StringBuilder();
+
+            while(true) {
+                int ch = br.read();
+                if(ch == -1) break;
+                sb.append((char)ch);
+            }
+            System.out.println(sb.toString());
+        }
+        catch (IOException e) {
+            System.out.println("❌ Something Bad Happened "+ e.getMessage());
         }
     }
 }

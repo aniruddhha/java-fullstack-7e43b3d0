@@ -81,7 +81,7 @@ public class App {
         System.out.println("There is no x in string"+ rc.remChar("abcpqr", "x"));
         System.out.println("Invalid Strinf"+ rc.remChar("", "x"));
         System.out.println("Specify the character to be removed"+ rc.remChar("abcxpqr", ""));
-        System.out.println("Answer (ab) "+ rc.remChar("axb", "ab"));
+        System.out.println("Answer (ab) "+ rc.remChar("axb", "x"));
         System.out.println("Answer (nothing remains) "+ rc.remChar("x", "x"));
         System.out.println("Answer (x) "+ rc.remChar("xx", "x"));
         System.out.println("Answer (abcpqr)"+ rc.remChar("axbcxpqr", "x"));

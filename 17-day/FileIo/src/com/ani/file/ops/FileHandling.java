@@ -181,7 +181,7 @@ public class FileHandling {
             oos.writeObject(car);
          }
         catch(IOException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
             System.out.println("❌ Problem in writing file");
         }
     }

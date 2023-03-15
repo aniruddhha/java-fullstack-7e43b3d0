@@ -1,6 +1,7 @@
 package com.ani.file.ops;
 
 import java.io.File;
+import java.io.IOException;
 
 public class FileHandling {
 
@@ -11,6 +12,21 @@ public class FileHandling {
 
         if(file.isDirectory()) {
             System.out.println("📂 This is a Directory");
+
+            File sub = new File(file, "test1");
+            boolean stsSub = sub.exists();
+            System.out.println(!stsSub ? "✅ Successfuly Created" : "❌ Directory Already Exists");
+            if(!stsSub)
+                sub.mkdir();
+
+            File subFile = new File(sub, "abc.txt");
+            boolean sts = false;
+            try {
+                sts = subFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println(sts ? "✅ Successfuly Created" : "❌ File Already Exists");
         } else {
             System.out.println("📝 This is a File");
         }

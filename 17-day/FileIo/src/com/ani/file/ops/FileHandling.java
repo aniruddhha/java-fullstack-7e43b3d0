@@ -1,5 +1,7 @@
 package com.ani.file.ops;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
@@ -235,6 +237,39 @@ public class FileHandling {
         }
         catch (IOException e) {
             System.out.println("❌ Something Bad Happened "+ e.getMessage());
+        }
+    }
+
+    public void demo14() {
+
+        final File file = new File("files/test7/abc.txt");
+        try(
+            final OutputStream out = new FileOutputStream(file);
+            final BufferedOutputStream bos = new BufferedOutputStream(out)
+        ) {
+            String dt = "hello word, first operation 😀";
+            bos.write(dt.getBytes());
+        }catch(IOException e) {
+            System.out.println("❌ Trouble in working file "+e.getMessage());
+        }
+    }
+
+    public void demo15() {
+        final File file = new File("files/test7/abc.txt");
+        try(
+            final InputStream in = new FileInputStream(file);
+            final BufferedInputStream bis = new BufferedInputStream(in);
+        ) {
+            final StringBuilder builder = new StringBuilder();
+
+            while(true) {
+                int ch = bis.read();
+                if(ch == -1) break;
+                builder.append((char)ch);
+            }
+            System.out.println(builder.toString());
+        }catch(IOException e) {
+            System.out.println("❌ Trouble in working file " + e.getMessage());
         }
     }
 }

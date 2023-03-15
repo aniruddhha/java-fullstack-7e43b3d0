@@ -31,5 +31,14 @@ public class FileHandling {
             System.out.println("📝 This is a File");
         }
     }
+  
+    public void demo2() {
+        File file = new File("files/test1/abc.txt");
+
+        file.getFreeSpace();
+        file.getTotalSpace();
+        file.getUsableSpace();
+    }
+
     
 }

@@ -172,5 +172,7 @@ public class BasicDemo {
         
         System.out.println("Is Removed "+ sts);
         System.out.println(numbers);   
+
+        numbers.replaceAll(null);
     }
 }

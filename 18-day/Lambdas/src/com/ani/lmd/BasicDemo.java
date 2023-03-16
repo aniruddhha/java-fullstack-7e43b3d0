@@ -14,9 +14,9 @@ public class BasicDemo {
 
     public void demo2() {
         // Runnable runnable = some function
-        Runnable runnable1 = () -> { };
+        Runnable runnable1 = () -> { }; // lambda
 
-        Runnable runnable2 = this::someFunction;
+        Runnable runnable2 = this::someFunction; // method reference
     }
 
     public void someFunction() {

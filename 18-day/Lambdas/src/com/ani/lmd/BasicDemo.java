@@ -1,8 +1,16 @@
 package com.ani.lmd;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class BasicDemo {
     
@@ -81,7 +89,88 @@ public class BasicDemo {
         names.forEach(this::ajhfgjahsdfg);
         names.forEach(System.out::println);
     }
+    
     public void ajhfgjahsdfg(String t) {
         System.out.println(t);
+    }
+
+    public void demo6() {
+       
+        Addable ad1 = (int a, int b) -> {
+            System.out.println("A "+a +" B "+ b);
+            return a + b;
+        };
+
+        System.out.println(ad1.add(10, 12));
+
+        Addable ad2 = new Addable() {
+            public int add(int num1, int num2) {
+                return num1 + num2;
+            };
+        };
+        System.out.println(ad2.add(10, 12));
+    }
+
+    public void demo7() {
+        Map<Integer, String> mp = new HashMap<>();
+        mp.put(2, "pwq");
+        mp.put(1, "Abc");
+        mp.put(3, "btrt");
+        mp.put(9, "bopl");
+
+        Set<Map.Entry<Integer, String>> entries = mp.entrySet();
+        for (Map.Entry<Integer, String> ent : entries) {
+            System.out.println("Key "+ent.getKey() + " Val " + ent.getValue());
+        }
+
+        mp.forEach(new BiConsumer<Integer,String>() {
+            int i = 10;
+            @Override
+            public void accept(Integer key, String value) {
+                i = 10;
+                System.out.println("Key "+ key + " Val " + value);                
+            }
+        });
+
+        final int i = 10;
+        mp.forEach(( k, v ) ->  {
+             System.out.println("Key "+ k + " Val " + v) ;
+            // i = 20;
+        });
+    }
+
+    public void demo8() {
+
+        Integer[] arr = {1, 90, 51, 0 ,23, 45, 21, 10};
+
+        List<Integer> numbers = new ArrayList<>(); // constant
+        numbers.addAll(Arrays.asList(arr)); // n + n = 2n = n 
+        
+        // Arrays.stream(arr).toList();
+
+        System.out.println(numbers);
+
+        boolean sts1 = numbers.removeIf(new Predicate<Integer>() {
+            @Override
+            public boolean test(Integer t) {
+                return t > 40;
+            }
+        });
+        System.out.println("Is Removed "+ sts1);
+
+        System.out.println(numbers);
+    }
+
+    public void demo9() {
+        Integer[] arr = {1, 90, 51, 0 ,23, 45, 21, 10};
+
+        List<Integer> numbers = new ArrayList<>(); // constant
+        numbers.addAll(Arrays.asList(arr)); // n + n = 2n = n 
+        System.out.println(numbers);
+
+        boolean sts = numbers.removeIf( n -> n > 40);
+        
+        System.out.println("Is Removed "+ sts);
+        System.out.println(numbers);   
     }
 }

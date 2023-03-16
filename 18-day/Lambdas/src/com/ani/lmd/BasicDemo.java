@@ -1,5 +1,6 @@
 package com.ani.lmd;
 
+import java.lang.annotation.Retention;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -90,6 +91,7 @@ public class BasicDemo {
         names.forEach(System.out::println);
     }
     
+
     public void ajhfgjahsdfg(String t) {
         System.out.println(t);
     }
@@ -158,9 +160,20 @@ public class BasicDemo {
         });
         System.out.println("Is Removed "+ sts1);
 
+        myDt(45, new Predicate<Integer>() {
+            @Override
+            public boolean test(Integer t) {
+                return t > 40;
+            }
+        }); 
+
         System.out.println(numbers);
     }
 
+
+    public boolean myDt(int t, Predicate<Integer> pd) {
+        return pd.test(t);
+    }
     public void demo9() {
         Integer[] arr = {1, 90, 51, 0 ,23, 45, 21, 10};
 
@@ -169,6 +182,9 @@ public class BasicDemo {
         System.out.println(numbers);
 
         boolean sts = numbers.removeIf( n -> n > 40);
+        ajhfgjahsdfg("abc");
+
+        myDt(10, t -> t > 40);
         
         System.out.println("Is Removed "+ sts);
         System.out.println(numbers);   

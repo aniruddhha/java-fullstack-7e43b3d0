@@ -19,13 +19,13 @@ public class Outer {
         public void accessOuter() {
             // data = 10;
         }
+        
     }
 
     public void display() {
         int i = 10;
-        class Formatter {
 
-        }
+        class Formatter { }
 
         Formatter fmt = new Formatter();
     }

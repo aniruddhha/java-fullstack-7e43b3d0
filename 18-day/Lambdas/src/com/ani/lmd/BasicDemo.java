@@ -1,9 +1,7 @@
 package com.ani.lmd;
 
-import java.lang.annotation.Retention;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -90,7 +88,6 @@ public class BasicDemo {
         names.forEach(this::ajhfgjahsdfg);
         names.forEach(System.out::println);
     }
-    
 
     public void ajhfgjahsdfg(String t) {
         System.out.println(t);
@@ -170,10 +167,10 @@ public class BasicDemo {
         System.out.println(numbers);
     }
 
-
     public boolean myDt(int t, Predicate<Integer> pd) {
         return pd.test(t);
     }
+
     public void demo9() {
         Integer[] arr = {1, 90, 51, 0 ,23, 45, 21, 10};
 
@@ -190,5 +187,11 @@ public class BasicDemo {
         System.out.println(numbers);   
 
         numbers.replaceAll(null);
+    }
+
+    public void demo10() {
+        Integer[] arr1 = {1, 90, 51, 0 ,23, 45, 21, 10};
+        ArrayList<Integer> set1 = new ArrayList<>(Arrays.asList(arr1));
+
     }
 }

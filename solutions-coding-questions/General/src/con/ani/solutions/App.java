@@ -1,6 +1,7 @@
 package con.ani.solutions;
 
 import con.ani.solutions.collections.CharacterCount;
+import con.ani.solutions.collections.CommonUnique;
 import con.ani.solutions.deviation.StandardDeviation;
 import con.ani.solutions.string.LongestSubstring;
 import con.ani.solutions.string.RemChar;
@@ -98,10 +99,22 @@ public class App {
         System.out.println(sts2);
     }
 
+    public static void uniqueCommon() {
+        CommonUnique cu = new CommonUnique();
+
+        Integer[] arr1 = {1, 2, 3, 4, 5};
+        Integer[] arr2 = {4, 5, 6, 7, 8};
+
+        ;
+        System.out.println(cu.unique(arr1, arr2));
+        System.out.println(cu.common(arr1, arr2));
+    }
+
     public static void main(String[] args) throws Exception {
         System.out.println("🔥 General Solutions 🔥");
     //    rotationEquality();
     // longestSubString();
-        countChars();   
+        // countChars();
+        uniqueCommon();   
     }
 }

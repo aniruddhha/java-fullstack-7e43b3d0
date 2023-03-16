@@ -19,7 +19,6 @@ public class BasicDemo {
         Runnable runnable2 = this::someFunction; // method reference
     }
 
-    public void someFunction() {
-
-    }
+    // public void run() { }
+    public void someFunction() {}
 }

@@ -74,6 +74,8 @@ public class BasicDemo {
         names.add("opt");
         names.add("tiu");
 
+        Consumer<String> cns = ( String t ) ->  System.out.println(t);
+        names.forEach(cns); 
         names.forEach(( String t ) ->  System.out.println(t));
         names.forEach(t ->  System.out.println(t));
         names.forEach(this::ajhfgjahsdfg);

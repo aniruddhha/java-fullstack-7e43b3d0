@@ -1,9 +1,6 @@
 package com.ani.anno;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
-
-public class App {
+spublic class App {
 
     public static void demo1() {
         Tiger tg = new Tiger();
@@ -23,7 +20,7 @@ public class App {
         Account ac = new Account();
         GetSetProcessor.generateAccessors(ac);
     }
-    
+
     public static void main(String[] args) throws Exception {
         System.out.println("🔥 Annotations 🔥");
 

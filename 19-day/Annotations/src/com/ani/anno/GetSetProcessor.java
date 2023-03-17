@@ -13,27 +13,23 @@ public class GetSetProcessor {
 
             String name = field.getName();
             String camelCaseFieldName = Character.toUpperCase(name.charAt(0)) + name.substring(1);
-
+            //Ac
+            // c
             System.out.println(camelCaseFieldName);
 
             String getterName = "get" + camelCaseFieldName;
+            // getAc
+            // getBalance
             String setterName = "set" + camelCaseFieldName;
+            // setAc
+            // setBalance
 
             System.out.println(getterName);
             System.out.println(setterName);
 
-            try {
-                clazz.getMethod(getterName).invoke(obj);
-
-                clazz.getMethod(setterName).invoke(obj);
-
-                // we need to update bytecode, 
-                // which is beyond the scope for now.
-
-            } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
-                e.printStackTrace();
-            }
-
+            // we need to update bytecode, 
+            // which is beyond the scope for now.
         }
     }
+
 }

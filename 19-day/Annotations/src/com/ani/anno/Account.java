@@ -6,4 +6,10 @@ public class Account {
 
     @GeneratorAccessors
     private double balance;
+
+    // getAc
+    // setAc
+
+    // getBalance
+    // setBalance
 }

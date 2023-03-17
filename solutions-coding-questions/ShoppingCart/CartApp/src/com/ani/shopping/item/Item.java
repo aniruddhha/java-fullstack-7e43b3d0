@@ -1,4 +1,4 @@
-package com.ani.cart.item;
+package com.ani.shopping.item;
 
 public class Item {
     private int id;

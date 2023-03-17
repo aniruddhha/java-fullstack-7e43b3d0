@@ -1,4 +1,6 @@
-package com.ani.cart.user;
+package com.ani.shopping.user;
+
+import com.ani.shopping.exception.UserNotFoundException;
 
 public class UsersDb {
 
@@ -32,6 +34,13 @@ public class UsersDb {
         return users;
     }
 
+    public static User findUserById(int userId) {
+        for ( User user : users) {
+            if(user.getId() == userId) return user;
+        }
+        throw new UserNotFoundException("❌ User Id " + userId +" Not Found");
+    }
+
     private static int isExists(int id) {
         for ( int i = 0; i < users.length; i++  ) {
             User user = users[i];
@@ -50,4 +59,6 @@ public class UsersDb {
         }
         return -1; // there is no empty position
     }   
+
+
 }

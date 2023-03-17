@@ -1,4 +1,4 @@
-package com.ani.cart.user;
+package com.ani.shopping.user;
 
 public class UserController {
 

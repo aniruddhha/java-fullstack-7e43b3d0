@@ -1,15 +1,24 @@
-package com.ani.cart.user;
+package com.ani.shopping.user;
 
-import com.ani.cart.input.CartDataInput;
+import com.ani.shopping.cart.CartController;
+import com.ani.shopping.cart.CartMenu;
+import com.ani.shopping.input.CartDataInput;
 
 public class UserMenu {
    
     private final CartDataInput ip;
     private final UserController controller;
 
+    private CartMenu cartMenu;
+    private CartController cartController;
+
     public UserMenu() {
         ip = new CartDataInput();
         controller = new UserController();
+
+        cartMenu = new CartMenu();
+        cartController = new CartController();
+
     }
 
     private void displayMenu() {
@@ -26,7 +35,7 @@ public class UserMenu {
         .append("\n")
         .append("2. List Users")
         .append("\n")
-        .append("3. Select User")
+        .append("3. Go To User Cart")
         .append("\n")
         .append("4. Exit")
         .append("\n");
@@ -43,12 +52,9 @@ public class UserMenu {
             try {
                 ch = ip.askForUserChoice();
             } catch (Exception e) {
-                ch = 0;
+                System.out.println("\n ❌ Enter Numbers Only \n");
             }
 
-            if(ch == 0) {
-                System.out.println("\n 👏 Enter Numbers Only \n");
-            }
             if(ch >= 4 ) {
                 System.out.println("\n 🙏 Thanks for using our services");
                 break;
@@ -56,19 +62,24 @@ public class UserMenu {
                 if(ch == 1) {
                     System.out.println("\n 👏 You selected New User \n");
                     try {
-                        int id = ip.askForId();
-                        String name = ip.askForName();
+                        int id = ip.askForId("Enter User Id");
+                        String name = ip.askForName("Enter User Name");
                         controller.createNewUser(id, name);
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
-
-                } else if(ch == 2) {
+                }
+                if(ch == 2) {
                     System.out.println(" \n 👏 You selected List users \n ");
                     controller.listAllUsers();
-                } else  if(ch == 3) {
-                    System.out.println("\n 👏 You selected Select User \n");
                 } 
+                if(ch == 3) {
+                    System.out.println(" \n 👏 Entering to User Cart \n ");
+                    
+                    int userId = ip.askForId("Enter User Id");
+                    cartController.setUserId(userId);
+                    cartMenu.performAction();
+                }
             }
         }
     }

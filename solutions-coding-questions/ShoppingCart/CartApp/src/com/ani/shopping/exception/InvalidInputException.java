@@ -1,4 +1,4 @@
-package com.ani.cart.exception;
+package com.ani.shopping.exception;
 
 public class InvalidInputException extends RuntimeException {
 

@@ -1,25 +1,37 @@
-package com.ani.cart;
+package com.ani.shopping.cart;
 
-import com.ani.cart.item.Item;
-import com.ani.cart.user.User;
+import java.util.ArrayList;
+
+import com.ani.shopping.item.Item;
+import com.ani.shopping.user.User;
 
 public class Cart { 
+
+    private int id;
     private User user;
-    private Item[] items;
+    private ArrayList<Item> items = new ArrayList<>();
     private double totalPrice;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public User getUser() {
         return user;
     }
+
     public void setUser(User user) {
         this.user = user;
     }
-    public Item[] getItems() {
+
+    public ArrayList<Item> getItems() {
         return items;
     }
-    public void setItems(Item[] items) {
-        this.items = items;
-    }
+
     public double getTotalPrice() {
         return totalPrice;
     }

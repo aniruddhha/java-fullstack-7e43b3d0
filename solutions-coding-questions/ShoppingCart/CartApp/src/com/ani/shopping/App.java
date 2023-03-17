@@ -1,6 +1,6 @@
-package com.ani.cart;
+package com.ani.shopping;
 
-import com.ani.cart.user.UserMenu;
+import com.ani.shopping.user.UserMenu;
 
 public class App {
     public static void main(String[] args) throws Exception {

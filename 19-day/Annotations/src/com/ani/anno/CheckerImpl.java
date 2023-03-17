@@ -15,6 +15,6 @@ public class CheckerImpl {
                 return "❌ "+ nm +" : " +chk.message();
             }
         }
-        return "Fields are correctly defined";
+        return "✅ Fields are correctly defined";
     }
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -162,20 +163,37 @@ public class FiDemos {
             }
         };
         Function<Integer, String> fn1 = num -> " Square is " + (num*num);
+        System.out.println(fn1.apply(10));
 
         BiFunction<Integer, Integer, String> biFn= new BiFunction<Integer, Integer, String>() {
-
             @Override
             public String apply(Integer t, Integer u) {
                 return "Addition is "+ (t + u);
             }
         };
+        System.out.println(biFn.apply(10, 12)); 
+
         BiFunction<Integer, Integer, String> biFn1 = (num1, num2) -> "Addition is "+(num1+num2);
+        System.out.println(biFn1.apply(10, 12)); 
 
         BiFunction<String, String, String> concat = (s1, s2) -> s1 + " is an " + s2;
 
         String str = concat.apply("android", "os");
         System.out.println("Concated String "+ str);
+    }
 
+    public void demo11() {
+
+        BiConsumer<String, Integer> biCon1 = new BiConsumer<String,Integer>() {
+            @Override
+            public void accept(String t, Integer u) {
+                System.out.println(t.repeat(u));
+            }
+        };
+        biCon1.accept("*", 10);
+        
+        BiConsumer<String, Integer> biCon2 = (String str, Integer num) -> System.out.println(str.repeat(num));
+        biCon2.accept("*", 20);
+        
     }
 }

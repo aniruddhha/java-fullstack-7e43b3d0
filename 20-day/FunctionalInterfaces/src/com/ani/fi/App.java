@@ -20,7 +20,7 @@ public class App {
     public static void functionDemo() {
 
         FiDemos fd = new FiDemos();
-        fd.demo10();
+        fd.demo11();
     }
 
     public static void main(String[] args) throws Exception {

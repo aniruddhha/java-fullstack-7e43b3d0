@@ -23,6 +23,23 @@ public class FiDemos {
 
     public void demo5() {
 
+        Function<Integer, String> fnImp = new DayFunction();
+
+        Function<Integer, String> fnAno = new Function<Integer,String>() {
+            @Override
+            public String apply(Integer day) {
+                if(day == 1) return "MON";
+                if(day == 2) return "TUE";
+                if(day == 3) return "WED";
+                if(day == 4) return "THU";
+                if(day == 5) return "FRI";
+                if(day == 6) return "SAT";
+                if(day == 7) return "SUN";
+                return "Invalid Day";
+            }
+        };
+
+        // after java 8
         Function<Integer, String> fn1 = (day) -> {
             if(day == 1) return "MON";
             if(day == 2) return "TUE";
@@ -34,7 +51,6 @@ public class FiDemos {
             return "Invalid Day";
         };
         
-
         Scanner sc = new Scanner(System.in);
         System.out.print("👉 Enter Day : ");
         int dy = sc.nextInt();

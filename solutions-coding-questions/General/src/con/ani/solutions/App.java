@@ -3,6 +3,7 @@ package con.ani.solutions;
 import con.ani.solutions.collections.CharacterCount;
 import con.ani.solutions.collections.CommonUnique;
 import con.ani.solutions.deviation.StandardDeviation;
+import con.ani.solutions.funifc.ImageUploader;
 import con.ani.solutions.string.LongestSubstring;
 import con.ani.solutions.string.RemChar;
 import con.ani.solutions.string.RotationEqaulity;
@@ -110,11 +111,17 @@ public class App {
         System.out.println(cu.common(arr1, arr2));
     }
 
+    public static void callbackDemo() {
+        ImageUploader up = new ImageUploader();
+
+        up.select();
+
+        up.compress();
+
+        up.upload();
+    }
     public static void main(String[] args) throws Exception {
         System.out.println("🔥 General Solutions 🔥");
-    //    rotationEquality();
-    // longestSubString();
-        // countChars();
-        uniqueCommon();   
+        callbackDemo();
     }
 }

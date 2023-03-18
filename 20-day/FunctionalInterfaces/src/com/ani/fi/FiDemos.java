@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -144,10 +145,37 @@ public class FiDemos {
 
         Integer[] arr = { 4, 6, 7, 1, 2, 3, 9 };
         List<Integer> lst = new ArrayList<>(Arrays.asList(arr));
+
         UnaryOperator<Integer> sqOp = n -> n * n;
 
         System.out.println(lst);
         lst.replaceAll(sqOp);
         System.out.println(lst);
+    }
+
+    public void demo10() {
+
+        Function<Integer, String> fn = new Function<Integer,String>() {
+            @Override
+            public String apply(Integer t) {
+                return "Square is " + (t*t);
+            }
+        };
+        Function<Integer, String> fn1 = num -> " Square is " + (num*num);
+
+        BiFunction<Integer, Integer, String> biFn= new BiFunction<Integer, Integer, String>() {
+
+            @Override
+            public String apply(Integer t, Integer u) {
+                return "Addition is "+ (t + u);
+            }
+        };
+        BiFunction<Integer, Integer, String> biFn1 = (num1, num2) -> "Addition is "+(num1+num2);
+
+        BiFunction<String, String, String> concat = (s1, s2) -> s1 + " is an " + s2;
+
+        String str = concat.apply("android", "os");
+        System.out.println("Concated String "+ str);
+
     }
 }

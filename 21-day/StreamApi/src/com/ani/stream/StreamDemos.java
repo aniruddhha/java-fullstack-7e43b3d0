@@ -107,4 +107,16 @@ public class StreamDemos {
                 .map(el -> el.toUpperCase())
                 .collect(Collectors.toList());
     }
+
+    public void demo7() {
+        int[] arr = { 1, 2, 3, 4, 5 }; // sum -> 15
+        
+        int sum = Arrays.stream(arr).reduce(100, (a, b) -> {
+            System.out.println("a = "+ a + " b = " +b);
+            return a + b;
+        });
+
+        System.out.println(Arrays.toString(arr));
+        System.out.println(sum);
+    }
 }

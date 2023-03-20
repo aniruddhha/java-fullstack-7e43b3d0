@@ -111,7 +111,7 @@ public class StreamDemos {
     public void demo7() {
         int[] arr = { 1, 2, 3, 4, 5 }; // sum -> 15
         
-        int sum = Arrays.stream(arr).reduce(100, (a, b) -> {
+        int sum = Arrays.stream(arr).reduce(0, (a, b) -> {
             System.out.println("a = "+ a + " b = " +b);
             return a + b;
         });

@@ -1,15 +1,22 @@
 package com.ani.shopping.cart;
 
 import com.ani.shopping.input.CartDataInput;
+import com.ani.shopping.item.ItemController;
 
 public class CartMenu {
     
     private final CartDataInput ip;
-    private final CartController controller;
+    private final CartController cartController;
+    private final ItemController itemController;
 
-    public CartMenu() {
-        ip = new CartDataInput();
-        controller = new CartController();
+    public CartMenu(CartDataInput ip, CartController cartController, ItemController itemController) {
+        // ip = new CartDataInput();
+        // controller = new CartController();
+        // itemController = new ItemController();
+
+        this.ip = ip;
+        this.cartController = cartController;
+        this.itemController = itemController;
     }
 
     private void displayMenu() {
@@ -54,12 +61,13 @@ public class CartMenu {
             else {
                 if(ch == 1) { 
                     System.out.println("\n 👏 Adding Item To Cart \n");
+                    itemController.displayItems();
                     int itemId = ip.askForId("Enter Item Id1");
-                    controller.addItemToCart(itemId);
+                    cartController.addItemToCart(itemId);
                 }
                 if(ch == 2) { 
                     System.out.println("\n 👏 Displaying The Cart \n");
-                    System.out.println(controller.cartItems(1));
+                    System.out.println(cartController.cartItems(1));
                 }
                 if(ch == 3) {  }
                 if(ch == 4) {  }

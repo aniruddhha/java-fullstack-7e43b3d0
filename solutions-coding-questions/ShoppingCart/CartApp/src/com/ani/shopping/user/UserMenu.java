@@ -3,22 +3,27 @@ package com.ani.shopping.user;
 import com.ani.shopping.cart.CartController;
 import com.ani.shopping.cart.CartMenu;
 import com.ani.shopping.input.CartDataInput;
+import com.ani.shopping.item.ItemController;
 
 public class UserMenu {
    
     private final CartDataInput ip;
-    private final UserController controller;
+    private final UserController userController;
 
     private CartMenu cartMenu;
     private CartController cartController;
 
-    public UserMenu() {
-        ip = new CartDataInput();
-        controller = new UserController();
-
-        cartMenu = new CartMenu();
-        cartController = new CartController();
-
+    public UserMenu(
+        CartDataInput ip, 
+        UserController userController,
+        CartController cartController, 
+        ItemController itemController,
+        CartMenu cartMenu
+    ) {
+        this.ip = ip;
+        this.userController = userController;
+        this.cartController = cartController;
+        this.cartMenu = cartMenu;
     }
 
     private void displayMenu() {
@@ -64,14 +69,14 @@ public class UserMenu {
                     try {
                         int id = ip.askForId("Enter User Id");
                         String name = ip.askForName("Enter User Name");
-                        controller.createNewUser(id, name);
+                        userController.createNewUser(id, name);
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
                 }
                 if(ch == 2) {
                     System.out.println(" \n 👏 You selected List users \n ");
-                    controller.listAllUsers();
+                    userController.listAllUsers();
                 } 
                 if(ch == 3) {
                     System.out.println(" \n 👏 Entering to User Cart \n ");

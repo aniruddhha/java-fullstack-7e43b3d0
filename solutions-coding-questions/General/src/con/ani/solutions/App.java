@@ -124,12 +124,18 @@ public class App {
                 up.upload( uploadTask -> {
                     System.out.println("✅ Image Upload Completed ");
                 });
-                
+
             });
         });
     }
     public static void main(String[] args) throws Exception {
         System.out.println("🔥 General Solutions 🔥");
         callbackDemo();
+
+        StringBuilder bld = new StringBuilder();
+        for(int i = 0; i < 5; i++) {
+            bld.append("*");
+        }
+        System.out.println(bld.toString());
     }
 }

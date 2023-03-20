@@ -2,8 +2,12 @@ package com.ani.stream;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class StreamDemos {
@@ -118,5 +122,29 @@ public class StreamDemos {
 
         System.out.println(Arrays.toString(arr));
         System.out.println(sum);
+    }
+
+    public void demo8() {
+        IntStream stream = IntStream.of(1, 2, 3, 4, 5);
+        stream.forEach(n -> System.out.println(n));
+
+        List<Integer> list = new ArrayList<>(Arrays.asList( 1, 2, 3, 4, 5  ));
+        Iterator<Integer> it = list.iterator();
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
+    }
+
+    public void demo9() {
+        Map<Integer, String> mp = new HashMap<>();
+        mp.put(1, "acx");
+        mp.put(2, "tuv");
+        mp.put(3, "xyz");
+        mp.put(4, "oop");
+        mp.put(5, "btu");
+    }
+
+    public void demo10() {
+        
     }
 }

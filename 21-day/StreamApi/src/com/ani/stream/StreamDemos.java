@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamDemos {
 
@@ -61,5 +62,49 @@ public class StreamDemos {
                                         .collect(Collectors.toList());
         System.out.println(names);
         System.out.println(processed);
+    }
+
+    public void demo5() {
+
+        // first filter and then upper case.
+
+        String[] arr = { "abc", "xyz", "pqb", "wet", "qza", "opm", "nert", "bbc" };
+        List<String> names = new ArrayList<>(Arrays.asList(arr));
+
+        List<String> processed1 = new ArrayList<>(); // collected output here
+
+        for (String nm : names) {
+            if(nm.contains("a") || nm.contains("b")) { // processing
+                processed1.add(nm);
+            }
+        }
+
+        List<String> processed2 = new ArrayList<>();
+
+        for (String nm : processed1) {
+            processed2.add(nm.toUpperCase());
+        }
+
+        System.out.println(names);
+        System.out.println(processed1);
+        System.out.println(processed2);
+    }   
+
+    public void demo6() {
+         // first filter and then upper case.
+
+         String[] arr = { "abc", "xyz", "pqb", "wet", "qza", "opm", "nert", "bbc" };
+         List<String> names = new ArrayList<>(Arrays.asList(arr));
+
+         Stream<String> stream1 = names.stream();
+         Stream<String> stream2 = stream1.filter( el -> el.contains("a") || el.contains("b"));
+         Stream<String> stream3 =  stream2.map(el -> el.toUpperCase());
+         List<String> processed = stream3.collect(Collectors.toList());
+
+
+        List<String> processed1 = names.stream()
+                .filter(el -> el.contains("a") || el.contains("b"))
+                .map(el -> el.toUpperCase())
+                .collect(Collectors.toList());
     }
 }

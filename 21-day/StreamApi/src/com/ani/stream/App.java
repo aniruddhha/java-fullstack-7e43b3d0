@@ -6,7 +6,7 @@ public class App {
         System.out.println("🔥 Streams API 🔥");
 
         StreamDemos sd = new StreamDemos();
-        sd.demo7();
+        sd.demo13();
 
     }
 }

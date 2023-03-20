@@ -6,9 +6,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+
+import javax.sound.midi.Soundbank;
 
 public class StreamDemos {
 
@@ -145,6 +148,87 @@ public class StreamDemos {
     }
 
     public void demo10() {
+        Integer[][] arr = {
+            { 1, 2 , 3 }, // 0 th
+            { 4, 5, 6 }, // 1 st
+            { 7, 8 , 9} // 2 nd 
+        };
+
+        int sum = 0;
+        for ( int i = 0; i < arr.length; i++ ) {
+            for (int j = 0; j < arr[i].length; j++ ) {
+                sum += arr[i][j];
+            }
+        }
+        System.out.println(sum);
+    }
+
+    public void demo11() {
+        Integer[][] arr = {
+            { 1, 2 , 3 }, // 0 th
+            { 4, 5, 6 }, // 1 st
+            { 7, 8 , 9} // 2 nd 
+        };
+
+        Arrays.stream(arr).map(ar -> ar).forEach( el -> System.out.println(el));;
+        Optional<Integer> opInt =  Arrays.stream(arr)
+                                        .map(ar -> Arrays.stream(ar).reduce(0, (a, b) -> a + b ))
+                                        .findFirst();
+        System.out.println(opInt.get());
+
+        Arrays.stream(arr)
+                .map(ar -> Arrays.stream(ar).reduce(0, (a, b) -> a + b ))
+                .forEach( el -> System.out.println(el));
+
+      
+        int sum = Arrays.stream(arr)
+                .map(ar -> Arrays.stream(ar).reduce(0, (a, b) -> a + b ))
+                .reduce(0, (a, b) -> a + b);
+        System.out.println(" Final Answer " +sum);
+    }
+
+    public void demo12() {
+        Integer[][] arr = {
+            { 1, 2 , 3 }, // 0 th
+            { 4, 5, 6 }, // 1 st
+            { 7, 8 , 9} // 2 nd 
+        };
+
+        Arrays.stream(arr)
+            .map( (Integer[] ar) -> ar) // here map is returing an array
+            .forEach( el -> System.out.println(Arrays.toString(el)));
+
+        int sum = Arrays.stream(arr)
+                        .flatMap((Integer[] ar) -> Stream.of(ar))
+                        .reduce(0, (a, b) -> a + b);
+        System.out.println(sum);
+    }
+
+    public void demo13() {
+        int[][] arr = {
+            { 1, 2 , 3 }, // 0 th
+            { 4, 5, 6 }, // 1 st
+            { 7, 8 , 9} // 2 nd 
+        };
+
+        int sum = Arrays.stream(arr)
+                .flatMapToInt(ar -> Arrays.stream(ar))
+                .sum();
+
+        IntStream is = IntStream.of(1, 2, 3);
+        System.out.println(is.sum());
         
+        IntStream is1 = Arrays.stream(arr[0]);
+        IntStream is2 = Arrays.stream(arr[1]);
+        IntStream is3 = Arrays.stream(arr[2]);
+
+        System.out.println(is1.sum() + is2.sum() + is3.sum());
+
+        int[] a = Arrays.stream(arr)
+        .flatMapToInt(ar -> Arrays.stream(ar))
+       .toArray();
+
+       System.out.println(Arrays.toString(a));
+            
     }
 }

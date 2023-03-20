@@ -2,6 +2,7 @@ package con.ani.solutions;
 
 import con.ani.solutions.collections.CharacterCount;
 import con.ani.solutions.collections.CommonUnique;
+import con.ani.solutions.collections.ContainsDuplicate;
 import con.ani.solutions.deviation.StandardDeviation;
 import con.ani.solutions.funifc.ImageUploader;
 import con.ani.solutions.string.LongestSubstring;
@@ -128,14 +129,14 @@ public class App {
             });
         });
     }
+    
+    public static void containsDuplicate() {
+        ContainsDuplicate cd = new ContainsDuplicate();
+        System.out.println( cd.containsDuplicates(new Integer[]{1 ,8, 9, 7}));;
+        System.out.println( cd.containsDuplicates(new Integer[]{1 , 7 ,8, 9, 7}));;
+    }
     public static void main(String[] args) throws Exception {
         System.out.println("🔥 General Solutions 🔥");
-        callbackDemo();
-
-        StringBuilder bld = new StringBuilder();
-        for(int i = 0; i < 5; i++) {
-            bld.append("*");
-        }
-        System.out.println(bld.toString());
+        containsDuplicate();
     }
 }

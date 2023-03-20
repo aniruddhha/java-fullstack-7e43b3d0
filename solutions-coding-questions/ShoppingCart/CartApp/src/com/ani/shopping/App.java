@@ -29,7 +29,6 @@ public class App {
         ItemController itemController = new ItemController();
 
         CartMenu cartMenu = new CartMenu(ip, cartController, itemController);
-
         UserMenu menu = new UserMenu(ip, userController, cartController, itemController, cartMenu);
 
         menu.performAction();

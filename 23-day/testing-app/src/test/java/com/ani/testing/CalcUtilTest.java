@@ -69,4 +69,15 @@ public class CalcUtilTest {
 
         Assertions.assertEquals(expectedOp, actualOp);
     }
+
+    @Test
+    public void testLowerBound() {
+        Assertions.assertThrows(RuntimeException.class, () -> {
+            int num1 = 3;
+            int num2 = 200;
+    
+            CalcUtil cu = new CalcUtil();
+            cu.calc(num1, num2);
+        });
+    }
 }

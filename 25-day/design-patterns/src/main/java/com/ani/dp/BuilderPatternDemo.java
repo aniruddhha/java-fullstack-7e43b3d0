@@ -1,6 +1,5 @@
 package com.ani.dp;
 
-
 public class BuilderPatternDemo {
 
     public static void main(String[] args) {
@@ -13,12 +12,10 @@ public class BuilderPatternDemo {
         System.out.println("Email "+ user1.getEmail() +" Phone " + user1.getPhone());
 
         User user2 = new User.Builder()
-                            .email("abc")
                             .phone("7667464")
                             .build();
 
         System.out.println("Email "+ user2.getEmail() +" Phone " + user2.getPhone());
-
     }
 }
 
@@ -39,7 +36,7 @@ class User {
         return phone;
     }
 
-    public static class Builder {
+    public static class Builder { // this class will implement an iterface
         private String email;
         private String phone;
         

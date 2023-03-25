@@ -4,13 +4,17 @@ public class FactoryMethodPatternDemo {
 
     public static void main(String[] args) {
         
-        VehicleFacory factory = new VehicleFacory();
+        SimpleVehicleFacory factory = new SimpleVehicleFacory();
 
         Discountable bike = factory.createDicountedVehicle("bike");
         bike.giveDiscount(10);
 
         Discountable cycle = factory.createDicountedVehicle("cycle");
         cycle.giveDiscount(80);
+
+        ComplexVehicleFacoryCreator fact1 = new BikeCreatorFactory();
+        Discountable bk = fact1.createDicountedVehicle();
+        bk.giveDiscount(67);
     }
 }
 
@@ -32,7 +36,7 @@ class Bike implements Discountable {
     }
 }
 
-class VehicleFacory {
+class SimpleVehicleFacory { // simple one
     public Discountable createDicountedVehicle(String type) {
 
         if(type.equalsIgnoreCase("cycle")) {
@@ -42,5 +46,23 @@ class VehicleFacory {
             return new Bike();
         }
         throw new IllegalArgumentException("Given Type is not supperted");
+    }
+}
+
+interface ComplexVehicleFacoryCreator {
+    Discountable createDicountedVehicle();
+}
+
+class BikeCreatorFactory implements ComplexVehicleFacoryCreator {
+    @Override
+    public Discountable createDicountedVehicle() {
+        return new Bike();
+    }
+}
+
+class CycleCreatorFactory implements ComplexVehicleFacoryCreator {
+    @Override
+    public Discountable createDicountedVehicle() {
+        return new Cycle();
     }
 }

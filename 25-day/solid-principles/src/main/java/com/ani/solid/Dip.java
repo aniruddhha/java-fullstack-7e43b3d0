@@ -4,6 +4,10 @@ public class Dip {
 
     public static void main(String[] args) {
         
+        System.gc();
+
+        Runtime.getRuntime().gc();
+
         // CrudOperations db = new UserDb(); // slower db
 
         // CrudOperations db = new FastUserDb(); // faster userdb

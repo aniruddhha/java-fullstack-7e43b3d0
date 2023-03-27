@@ -2,3 +2,30 @@
     background-color: black;
     color: white;
 }
+
+h2 {
+    /* seleceting by tag name */
+    background-color: red;
+    color: white;
+}
+
+.someName {
+     /* seleceting by class name */
+    background-color: yellowgreen;
+    color: black;
+}
+
+#appH1 {
+      /* seleceting by id */
+      background-color: gold;
+      color: whitesmoke;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+nav {
+    background-color: black;
+    height: 50px;
+    color: white;
+}
+.nav-item {
+    color: white;
+    font-size: large;
+}
+
+#hmIc {
+    width: 30px;
+    height: 30px;
+}

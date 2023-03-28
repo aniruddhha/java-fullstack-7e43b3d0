@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link  href="./app.css" rel="stylesheet">
+
+    <title>Bootstrap Demo</title>
+
+</head>
+<body>
+    <main >
+        <section class="bg-primary m-3 p-3"> 
+            <p class="text-white">Accessibility tip: Using color to add meaning only provides a visual indication, which will not be conveyed to users of assistive technologies like screen readers. Please ensure the meaning is obvious from the content itself (e.g., the visible text) or is included through alternative means, such as additional text hidden with the .visually-hidden class. </p>
+        </section>
+        <form>
+            <div class="mb-3">
+                <input 
+                    type="email" 
+                    class="form-control" 
+                    aria-describedby="emailHelp">
+              </div>
+        </form>
+    </main>
+</body>
+</html>

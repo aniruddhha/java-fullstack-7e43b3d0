@@ -37,9 +37,13 @@ html, body {
 }
 .max-portion {
     background-color: cornflowerblue;
-    flex: 7;
+    /* flex: 7; */
+    flex: 7 1 auto;
+    /* flex-grow: 7;
+    flex-shrink: 1;
+    flex-basis: auto; */
 }
 .min-portion {
     background-color: darkblue;
-    flex: 3;
+    flex: 3 1 auto;
 }

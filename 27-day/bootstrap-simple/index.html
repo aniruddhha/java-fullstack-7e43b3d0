@@ -12,18 +12,36 @@
 
 </head>
 <body>
-    <main >
+    <main class="container">
         <section class="bg-primary m-3 p-3"> 
             <p class="text-white">Accessibility tip: Using color to add meaning only provides a visual indication, which will not be conveyed to users of assistive technologies like screen readers. Please ensure the meaning is obvious from the content itself (e.g., the visible text) or is included through alternative means, such as additional text hidden with the .visually-hidden class. </p>
         </section>
-        <form>
-            <div class="mb-3">
-                <input 
-                    type="email" 
-                    class="form-control" 
-                    aria-describedby="emailHelp">
+        <section>
+            <form class="form-floating">
+                <div class="mb-3">
+                    <input 
+                        type="email" 
+                        class="form-control" 
+                        aria-describedby="emailHelp">
+                  </div>
+            </form>
+        </section>
+        <section>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
               </div>
-        </form>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+              </div>
+              <div>
+                <input 
+                    type="button" 
+                    class="btn btn-success mt-2"
+                    value="Login">
+              </div>
+        </section>
     </main>
 </body>
 </html>

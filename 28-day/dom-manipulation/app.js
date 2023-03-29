@@ -12,12 +12,12 @@ const cardDataArr = [
         txt : 'A shallow copy of an object is a copy whose properties share the same references (point to the same underlying values) as those of the source object from which the copy was made.'
     },
     {
-        img : 'https://shelleygrayteaching.com/wp-content/uploads/2020/03/Blue_3-x-5.png',
+        img : 'https://www.fossmint.com/wp-content/uploads/2020/03/Udemy-Advance-Python-Learning-Courses.png',
         ttl : 'Python Basics',
         txt : 'A shallow copy of an object is a copy whose properties share the same references (point to the same underlying values) as those of the source object from which the copy was made.'
     },
     {
-        img : 'https://shelleygrayteaching.com/wp-content/uploads/2020/03/Blue_3-x-5.png',
+        img : 'https://i.ytimg.com/vi/S0V20PHPR4M/maxresdefault.jpg',
         ttl : 'Java Fullstack',
         txt : 'A shallow copy of an object is a copy whose properties share the same references (point to the same underlying values) as those of the source object from which the copy was made.'
     }

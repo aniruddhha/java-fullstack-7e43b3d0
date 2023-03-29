@@ -21,3 +21,14 @@ function calc(num1, num2, op) {
 }
 
 console.log(calc(3, 45, '+'))
+
+// anonymous functions
+const sqr1 = function (n) {
+    return n * n
+}
+
+// fat arrows
+const sqr2 = n => n * n
+
+console.log(sqr1(2))
+console.log(sqr2(2))

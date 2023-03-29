@@ -1,6 +1,6 @@
 const calcForm = document.getElementById('calcForm')
 
-calcForm.onsubmit = ev =>  {
+calcForm.onsubmit = ev => {
 
     console.log(ev)
     console.log(ev.submitter.id)
@@ -18,12 +18,12 @@ calcForm.onsubmit = ev =>  {
 
     const hdrRes = document.getElementById('hdrRes')
 
-    if(whBtn == 'add')
+    if (whBtn == 'add')
         hdrRes.textContent = Number.parseInt(txtNum1.value) + Number.parseInt(txtNum2.value)
-    if(whBtn == 'sub')
+    if (whBtn == 'sub')
         hdrRes.textContent = Number.parseInt(txtNum1.value) - Number.parseInt(txtNum2.value)
-    if(whBtn == 'mul')
+    if (whBtn == 'mul')
         hdrRes.textContent = Number.parseInt(txtNum1.value) * Number.parseInt(txtNum2.value)
-    if(whBtn == 'div')
+    if (whBtn == 'div')
         hdrRes.textContent = Number.parseInt(txtNum1.value) / Number.parseInt(txtNum2.value)
 }

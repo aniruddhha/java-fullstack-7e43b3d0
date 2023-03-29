@@ -21,3 +21,14 @@ do {
     console.log(`Index ${j} -> Element ${nums[j]}`)
     j++
 } while( j < nums.length )
+
+console.log(`🔥 For In 🔥`)
+for (let ind in nums) {
+    console.log(`Index ${ind} -> Element ${nums[ind]}`)
+}
+
+console.log(`🔥 For Of 🔥`)
+for (let el of nums) {
+    console.log(`Element ${el}`)
+}
+

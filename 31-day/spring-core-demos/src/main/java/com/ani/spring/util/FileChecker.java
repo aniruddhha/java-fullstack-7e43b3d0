@@ -7,4 +7,8 @@ public class FileChecker {
     public FileChecker(FileUtil util) {
         this.util = util;
     }
+
+    public void checkFileValidity() {
+        System.out.println("File Size is " + util.fileSize());
+    }
 }

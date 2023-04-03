@@ -1,7 +1,5 @@
 package com.ani.spring.config;
 
-import java.io.File;
-
 import org.springframework.context.annotation.Bean;
 
 import com.ani.spring.util.FileChecker;

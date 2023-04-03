@@ -45,7 +45,7 @@ public final class App {
 
     public static void withSpringAnnotationConfig() {
         System.out.println("🔥 Providing Dependencies With Annotation Config 🔥");
-        ApplicationContext ctx = new AnnotationConfigApplicationContext(XlConfig.class);
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(XlConfig.class, AppConfig.class);
 
         String[] names = ctx.getBeanDefinitionNames();
         System.out.println(Arrays.toString(names));

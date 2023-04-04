@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
+@Controller //specilized component used in web mvc, which plays role of controller
 @RequestMapping("/demo") 
 public class HelloController { // http://localhost:8080/demo
     

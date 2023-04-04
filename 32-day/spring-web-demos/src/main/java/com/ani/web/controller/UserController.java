@@ -104,9 +104,9 @@ public class UserController {
         return "createuser";
     }
 
-    // @ExceptionHandler({ UserNotFoundException.class })
-    // public String handleAllExceptions() {
+    @ExceptionHandler({ UserNotFoundException.class })
+    public String handleAllExceptions() {
 
-    //     return "fail";
-    // }
+        return "fail";
+    }
 }

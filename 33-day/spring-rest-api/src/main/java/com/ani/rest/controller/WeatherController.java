@@ -1,5 +1,6 @@
 package com.ani.rest.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/weather")
 @Controller
 public class WeatherController {
+
+    @Value("${ad.server.url}")
+    private String server;
     
     //GET - http://localhost:8080/weather/
     @GetMapping("/")
@@ -53,4 +57,11 @@ public class WeatherController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(res);
     }
+
+    @GetMapping(value = "/ads", produces = MediaType.APPLICATION_JSON_VALUE ) // ✅
+    public @ResponseBody ResponseEntity<Res> showAds() {
+        Res res = new Res("success", "fetching ads from "+ server);
+        return ResponseEntity.status(HttpStatus.OK).body(res);
+    }
+
 }

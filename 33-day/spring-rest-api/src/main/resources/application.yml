@@ -1,3 +1,8 @@
 ad:
   server:
     url : http://sample.com
+
+
+# spring:
+#   profiles:
+#     active: prod

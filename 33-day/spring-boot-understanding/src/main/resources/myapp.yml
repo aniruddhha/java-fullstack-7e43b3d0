@@ -9,3 +9,6 @@ testing:
     strategy: agile
     bugcolor: red
 
+server:
+  port: 8990
+

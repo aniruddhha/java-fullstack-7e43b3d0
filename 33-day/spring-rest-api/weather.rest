@@ -1,0 +1,13 @@
+
+GET http://localhost:8080/weather/temp4
+
+###
+
+POST http://localhost:8080/weather/save HTTP/1.1
+content-type: application/json
+
+{
+    "temp": 23
+}
+
+###

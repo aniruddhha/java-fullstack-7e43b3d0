@@ -1,0 +1,11 @@
+testing:
+  accounts:
+    ws: http://pqr.ocm
+    server: http://666.999.000.111
+    mail: http://666.999.000.111
+    sms: http://666.999.000.111
+  process:
+    name: abc
+    strategy: agile
+    bugcolor: red
+

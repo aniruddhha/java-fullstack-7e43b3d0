@@ -1,0 +1,14 @@
+
+# server.port = 7890
+server:
+  port: 7890
+
+# -- Configuring spring web project
+# spring.mvc.view.prefix=/WEB-INF/jsp/
+# spring.mvc.view.suffix=.jsp
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+

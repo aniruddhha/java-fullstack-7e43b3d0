@@ -1,4 +1,4 @@
-package com.ani.crud.controller;
+package com.ani.crud.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

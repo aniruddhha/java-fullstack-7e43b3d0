@@ -1,4 +1,4 @@
-package com.ani.crud.controller;
+package com.ani.crud.dto;
 
 import javax.annotation.Generated;
 

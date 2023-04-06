@@ -1,0 +1,6 @@
+
+#spring.data.mongodb.database
+spring:
+  data:
+    mongodb:
+      database: shoppingcart

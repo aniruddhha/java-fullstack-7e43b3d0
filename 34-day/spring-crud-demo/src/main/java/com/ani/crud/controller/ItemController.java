@@ -53,7 +53,7 @@ public class ItemController {
     }
 
      // DELETE - http://localhost:8080/item/
-    @DeleteMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<AppRes> delete(@PathVariable Long id) {
 
         AppRes res = AppRes.builder()

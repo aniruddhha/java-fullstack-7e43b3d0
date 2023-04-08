@@ -1,0 +1,29 @@
+### Testing CRUD Operations
+
+### Create Item
+POST http://localhost:8080/item/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 12,
+    "name": "aaa",
+    "category": "rty",
+    "price": 89
+}
+
+### Get All Items
+GET http://localhost:8080/item/ HTTP/1.1
+
+### Update the item
+PUT http://localhost:8080/item/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 130,
+    "name": "bbb",
+    "category": "iop",
+    "price": 11.11
+}
+
+### Delete Perticular Ite,
+DELETE http://localhost:8080/item/12 HTTP/1.1

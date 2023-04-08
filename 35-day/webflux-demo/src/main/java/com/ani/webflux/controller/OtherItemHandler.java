@@ -72,9 +72,8 @@ public class OtherItemHandler {
         items.remove(id);
 
         return ServerResponse.status(HttpStatus.OK)
-                                .body(
-                                    Mono.just(new AppRes("success", "Item deleted successfully")), 
-                                    AppRes.class
-                                );
+                .body(
+                        Mono.just(new AppRes("success", "Item deleted successfully")),
+                        AppRes.class);
     }
 }

@@ -1,6 +1,5 @@
 package com.ani.crud.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +22,12 @@ import com.ani.crud.service.ItemService;
 
 // http://localhost:8080/item
 @RequestMapping(value = "/item")
-@Controller
+@Controller // i resolve the views
 public class ItemController {
 
     @Autowired
     private ItemService itemService;
-    
+
     // POST - http://localhost:8080/item/
     @PostMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<AppRes> create(@RequestBody Item item) {

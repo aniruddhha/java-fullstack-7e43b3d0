@@ -3,10 +3,11 @@ package com.ani.crud.service;
 import java.util.List;
 
 import com.ani.crud.domain.Item;
+import com.ani.crud.exception.BadItemException;
 
 public interface ItemService {
     
-    Integer create(Item item);
+    Integer create(Item item) throws BadItemException;
 
     List<Item> readAll();
 

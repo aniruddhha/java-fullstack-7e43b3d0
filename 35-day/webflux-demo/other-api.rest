@@ -1,0 +1,13 @@
+### Create Item
+POST http://localhost:8080/post/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 12,
+    "name": "aaa",
+    "category": "rty",
+    "price": 89
+}
+
+### Get All Items
+GET http://localhost:8080/other/ HTTP/1.1

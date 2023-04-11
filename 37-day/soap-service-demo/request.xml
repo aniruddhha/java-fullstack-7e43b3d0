@@ -1,5 +1,5 @@
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-				  xmlns:gs="http://spring.io/guides/gs-producing-web-service">
+				  xmlns:gs="http://soap.ani.com/gen">
    <soapenv:Header/>
    <soapenv:Body>
       <gs:getCountryRequest>

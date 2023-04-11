@@ -16,7 +16,9 @@ public class GlobalExceptionHandler extends SoapFaultMappingExceptionResolver {
     @Override
     protected void customizeFault(Object endpoint, Exception ex, SoapFault fault) {
 
+        System.out.println("-------> Got Error ");
         if(ex instanceof ServiceFaultException) {
+            System.out.println("❌ It is service");
             ServiceStatus sts = ((ServiceFaultException)ex).getStatus();
 
             SoapFaultDetail detail = fault.getFaultDetail();

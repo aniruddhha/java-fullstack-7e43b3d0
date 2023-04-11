@@ -35,4 +35,11 @@
             <xs:enumeration value="PLN"/>
         </xs:restriction>
     </xs:simpleType>
+    
+    <xs:complexType name="serviceStatus">
+        <xs:sequence>
+            <xs:element name="statusCode" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>     
 </xs:schema>

@@ -17,14 +17,15 @@ public class GlobalExceptionHandler extends SoapFaultMappingExceptionResolver {
     protected void customizeFault(Object endpoint, Exception ex, SoapFault fault) {
 
         System.out.println("-------> Got Error ");
+        System.out.println(ex.getClass().getCanonicalName());
         if(ex instanceof ServiceFaultException) {
             System.out.println("❌ It is service");
             ServiceStatus sts = ((ServiceFaultException)ex).getStatus();
 
-            SoapFaultDetail detail = fault.getFaultDetail();
+            SoapFaultDetail detail = fault.addFaultDetail();
 
-            detail.addFaultDetailElement(CODE).addText("This is custom Exception "+ sts.getStatusCode());
-            detail.addFaultDetailElement(MESSAGE).addText("This is custom Exception "+ sts.getMessage());
+            detail.addFaultDetailElement(CODE).addText("This is custom Exception CODE "+ sts.getStatusCode());
+            detail.addFaultDetailElement(MESSAGE).addText("This is custom Exception MSG "+ sts.getMessage());
         }
     }
     

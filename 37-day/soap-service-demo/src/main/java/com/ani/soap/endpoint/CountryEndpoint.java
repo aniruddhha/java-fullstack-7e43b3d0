@@ -26,9 +26,9 @@ public class CountryEndpoint {
 
         if(request.getName().isEmpty()) {
             ServiceStatus sts = new ServiceStatus();
-            sts.setMessage("bad request");
+            sts.setMessage("name cant be empty");
             sts.setStatusCode("400");
-            throw new ServiceFaultException("Failed In ", sts );
+            throw new ServiceFaultException("Bad Request Data ", sts );
         }
 
         Country country = new Country();

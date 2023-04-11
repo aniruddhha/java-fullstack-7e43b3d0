@@ -18,6 +18,7 @@ public class GlobalExceptionHandler extends SoapFaultMappingExceptionResolver {
 
         System.out.println("-------> Got Error ");
         System.out.println(ex.getClass().getCanonicalName());
+        
         if(ex instanceof ServiceFaultException) {
             System.out.println("❌ It is service");
             ServiceStatus sts = ((ServiceFaultException)ex).getStatus();

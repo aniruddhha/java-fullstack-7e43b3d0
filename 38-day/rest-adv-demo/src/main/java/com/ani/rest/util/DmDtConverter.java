@@ -14,7 +14,7 @@ public class DmDtConverter {
         return new BankAccount(dto.getId(), dto.getOwner(), dto.getBalance(), LocalDate.now());
     }
 
-    public BankAccountDto toDto(BankAccount account) {
-        return new BankAccountDto(account.getId(), account.getOnwer(), account.getBalance());
+    public BankAccountDto toDto(BankAccount domain) {
+        return new BankAccountDto(domain.getId(), domain.getOnwer(), domain.getBalance());
     }
 }

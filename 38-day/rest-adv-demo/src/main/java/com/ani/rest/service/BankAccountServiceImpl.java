@@ -26,7 +26,7 @@ public class BankAccountServiceImpl implements BankAccountService{
     }
 
     @Override
-    public Collection<BankAccountDto> findAll() {
+    public Collection<BankAccountDto> listAllAccounts() {
         return repository.findAll()
                             .stream()
                             .map(ba -> converter.toDto(ba))

@@ -11,6 +11,6 @@ import lombok.Setter;
 @Getter
 public class BankAccountDto {
     private Long id;
-    private String onwer;
+    private String owner;
     private Double balance;
 }

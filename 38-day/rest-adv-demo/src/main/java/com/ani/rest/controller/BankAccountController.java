@@ -38,7 +38,7 @@ public class BankAccountController {
         Link selfLink = linkTo(methodOn(BankAccountController.class).accountDetails2())
                         .withSelfRel();
 
-        Link withdarwLink = linkTo(methodOn(BankAccountController.class).accountDetails2())
+        Link withdarwLink = linkTo(methodOn(BankAccountController.class).accountDetails())
                             .withRel("withdraw");
         
         Link depositLink = linkTo(methodOn(BankAccountController.class).accountDetails2())

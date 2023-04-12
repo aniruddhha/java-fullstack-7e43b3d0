@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.ani.rest.domain.BankAccount;
 import com.ani.rest.dto.BankAccountDto;
 import com.ani.rest.repository.BankAccountRepository;
 import com.ani.rest.util.DmDtConverter;
@@ -27,9 +26,11 @@ public class BankAccountServiceImpl implements BankAccountService{
 
     @Override
     public Collection<BankAccountDto> listAllAccounts() {
+
         return repository.findAll()
                             .stream()
-                            .map(ba -> converter.toDto(ba))
-                            .collect(Collectors.toList());
+                            // .map(account -> converter.toDto(account))
+                           .map(converter::toDto)
+                           .collect(Collectors.toList());
     }
 }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Bank Account</title>
+</head>
+
+<body>
+    <main class="container">
+        <section>
+            <h1 class="text-primary"> Create Bank User </h1>
+        </section>
+        <section>
+            <form id="formCreateNewUser">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="fltOwn" placeholder="Owner Name" name="owner">
+                    <label for="fltOwn">Owner Name</label>
+                </div>
+                <div class="form-floating">
+                    <input type="number" class="form-control" id="fltBal" placeholder="Balance" name="balance">
+                    <label for="fltBal">Balance</label>
+                </div>
+                <div class="mt-2">
+                    <input type="submit" class="btn btn-primary" value="Create New User">
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>

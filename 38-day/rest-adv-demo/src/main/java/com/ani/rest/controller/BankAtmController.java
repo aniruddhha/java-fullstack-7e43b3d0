@@ -1,9 +1,14 @@
 package com.ani.rest.controller;
 
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,25 +29,33 @@ public class BankAtmController {
     private final BankAccountService service;
 
     @PostMapping(value = "/")
-    public ResponseEntity<AppResponse<BankAccountDto>> create(@RequestBody BankAccountDto requestDto) {
+    public ResponseEntity<AppResponse<Integer>> create(@RequestBody BankAccountDto requestDto) {
 
-        BankAccount account = new BankAccount();
-        account.setBalance(requestDto.getBalance());
-        account.setId(requestDto.getId());
-        account.setOnwer(requestDto.getOwner());
-        account.setLastModified(LocalDate.now());
-
-        service.createNewAccount(account);
+        Integer st = service.createNewAccount(requestDto);
 
 
-        BankAccountDto responseDto = new BankAccountDto(account.getId(), account.getOnwer(), account.getBalance());
-
-        AppResponse<BankAccountDto> response = AppResponse.<BankAccountDto>builder()
+        AppResponse<Integer> response = AppResponse.<Integer>builder()
                                                     .sts("success")
                                                     .msg("account created successfully")
-                                                    .bd(responseDto)
+                                                    .bd(st)
                                                     .build();
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+
+    @GetMapping
+    public ResponseEntity<AppResponse<Collection<BankAccountDto>>> accounts() {
+
+        Collection<BankAccountDto> accounts = service.findAll();
+                                    
+
+        AppResponse<Collection<BankAccountDto>> response = AppResponse.<Collection<BankAccountDto>>builder()
+                                                                .sts("success")
+                                                                .msg("all accounts")
+                                                                .bd(accounts)
+                                                                .build(); 
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 }

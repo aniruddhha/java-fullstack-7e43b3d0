@@ -1,1 +1,16 @@
-GET http://localhost:8080/accounts/links
+
+### Find All Accounts
+
+GET http://localhost:8080/atm/
+
+### Create New Account
+
+POST http://localhost:8080/atm/ HTTP/1.1 
+content-type: application/json
+
+{
+    "id" : 12, 
+    "name" : "abc", 
+    "category" : "rrr", 
+    "price" : 45.90
+}

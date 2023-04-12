@@ -9,7 +9,7 @@ POST http://localhost:8080/atm/ HTTP/1.1
 content-type: application/json
 
 {
-    "id" : 13, 
-    "owner" : "lmn", 
-    "balance" : 78.90
+    "id" : 17, 
+    "owner" : "zwr", 
+    "balance" : 98
 }

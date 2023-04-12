@@ -8,9 +8,14 @@ form.addEventListener('submit', async ev => {
     const balance = frmDt.get('balance');
 
     const reqObj = { id: 1, owner : owner, balance: balance }
-
     console.log(reqObj)
 
+    postCreateNewUserRequest(reqObj)
+    
+})
+
+
+async function postCreateNewUserRequest(reqObj) {
     const response = await fetch('http://localhost:8080/atm/', { 
         method : 'POST',
         headers : {
@@ -22,5 +27,14 @@ form.addEventListener('submit', async ev => {
 
     const json = await response.json()
 
+    showSuccessMessage(json.msg)
+
     console.log(json)
-})
+}
+
+
+function showSuccessMessage(msg) {
+    const alt = document.getElementById('altSc')
+    alt.style.display = 'block'
+    alt.innerText = msg
+}

@@ -1,0 +1,15 @@
+{
+    "app_name": "My Application",
+    "app_version": "1.0.0",
+    "debug_mode": true,
+    "max_users": 100,
+    "database": {
+      "host": "localhost",
+      "port": 3306
+    },
+    "email_settings": {
+      "smtp_server": "smtp.gmail.com",
+      "smtp_port": 587
+    }
+}
+  

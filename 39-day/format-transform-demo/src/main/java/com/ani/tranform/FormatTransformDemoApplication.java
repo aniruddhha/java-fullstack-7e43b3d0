@@ -11,22 +11,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.util.ResourceUtils;
 
 import com.ani.tranform.domain.Author;
 import com.ani.tranform.domain.Book;
 import com.ani.tranform.domain.Publisher;
+import com.ani.tranform.json.Config;
+import com.ani.tranform.json.JsonDemo;
 import com.ani.tranform.xml.Converter;
 
 @SpringBootApplication
 public class FormatTransformDemoApplication {
 
-	public static void main(String[] args) throws JAXBException, IOException {
-		ApplicationContext ctx = SpringApplication.run(FormatTransformDemoApplication.class, args);
-
+	public static void demo1(ApplicationContext ctx) throws JAXBException, IOException {
 
 		Converter converter = ctx.getBean(Converter.class);
-
 
 		Author author = new Author();
 		author.setFirstName("abc");
@@ -54,6 +52,14 @@ public class FormatTransformDemoApplication {
 		Resource res = new ClassPathResource("book.xml");
 		Book bk = converter.toDomain(res.getFile());
 		System.out.println(bk);
+	}
+
+	public static void main(String[] args) throws IOException  {
+		ApplicationContext ctx = SpringApplication.run(FormatTransformDemoApplication.class, args);
+
+		JsonDemo jd =  ctx.getBean(JsonDemo.class);
+		Config cfg = jd.toDomain(new ClassPathResource("demo.json").getFile().getAbsolutePath());
+		System.out.println(cfg);
 	}
 
 }

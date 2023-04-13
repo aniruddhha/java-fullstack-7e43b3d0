@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -20,6 +21,8 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.csrf().disable();
+
         http.authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/user/**").hasAnyRole("ADMIN", "USER")
@@ -27,21 +30,22 @@ public class SecurityConfig {
                 .and()
                 .httpBasic();
         // .authenticationEntryPoint(authenticationEntryPoint);
+
         return http.build();
     }
 
     @Bean
-    public InMemoryUserDetailsManager userDetailsService(PasswordEncoder encoder) {
+    public UserDetailsService userDetailsService(PasswordEncoder encoder) {
         UserDetails user1 = User
                 .withUsername("user")
                 .password(encoder.encode("123"))
-                .roles("USER_ROLE")
+                .roles("USER")
                 .build();
         
         UserDetails user2 = User
                 .withUsername("admin")
                 .password(encoder.encode("456"))
-                .roles("ADMIN_ROLE")
+                .roles("ADMIN")
                 .build();
 
         return new InMemoryUserDetailsManager(user1, user2);

@@ -1,10 +1,17 @@
 package com.ani.tranform;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.time.LocalDate;
+
 import javax.xml.bind.JAXBException;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.util.ResourceUtils;
 
 import com.ani.tranform.domain.Author;
 import com.ani.tranform.domain.Book;
@@ -14,7 +21,7 @@ import com.ani.tranform.xml.Converter;
 @SpringBootApplication
 public class FormatTransformDemoApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws JAXBException, IOException {
 		ApplicationContext ctx = SpringApplication.run(FormatTransformDemoApplication.class, args);
 
 
@@ -33,6 +40,9 @@ public class FormatTransformDemoApplication {
 		book.setGenre("abc");
 		book.setIsbn("6543gfh167245");
 		book.setTitle("tuv");
+		book.setAuthor(author);
+		book.setPublisher(publisher);
+		book.setPublishedDate(LocalDate.now());
 
 		try {
 			converter.toXml(book);
@@ -40,6 +50,10 @@ public class FormatTransformDemoApplication {
 			e.printStackTrace();
 		}
 
+
+		Resource res = new ClassPathResource("book.xml");
+		Book bk = converter.toDomain(res.getFile());
+		System.out.println(bk);
 	}
 
 }

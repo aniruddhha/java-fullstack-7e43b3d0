@@ -14,8 +14,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @XmlRootElement(name = "book")
@@ -24,6 +28,7 @@ public class Book {
     private String title;
     private String isbn;
     
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
     private LocalDate publishedDate;
     private String genre;
 

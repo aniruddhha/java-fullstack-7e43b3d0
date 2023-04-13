@@ -60,6 +60,8 @@ public class FormatTransformDemoApplication {
 		JsonDemo jd =  ctx.getBean(JsonDemo.class);
 		Config cfg = jd.toDomain(new ClassPathResource("demo.json").getFile().getAbsolutePath());
 		System.out.println(cfg);
+
+		System.out.println(jd.toJson(cfg));
 	}
 
 }

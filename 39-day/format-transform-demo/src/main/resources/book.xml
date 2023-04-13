@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book>
+    <title>War and Peace</title>
+    <author>
+      <first-name>Leo</first-name>
+      <last-name>Tolstoy</last-name>
+    </author>
+    <published-date>1869-1870</published-date>
+    <genre>Fiction</genre>
+    <publisher>
+      <name>Penguin Classics</name>
+      <location>London</location>
+    </publisher>
+    <isbn>978-0140447934</isbn>
+</book>

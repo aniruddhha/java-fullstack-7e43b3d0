@@ -4,6 +4,12 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Component;
 
 import com.ani.data.domain.Invoice;
@@ -57,5 +63,34 @@ public class CustomizedDemo {
             780d 
         );
         invoices2.forEach(System.out::println);
+    }
+
+    public void demo5() {
+        System.out.println("🟢 Limit and Order By 🟢");
+        List<Invoice> invoices1 = repository.findTop10ByOrderByAmtDesc();
+        invoices1.forEach(System.out::println);
+
+        System.out.println("🟢 Like And Sort 🟢");
+        List<Invoice> invoices2 = repository.findByClientLike("%a%", Sort.by(Direction.DESC,"client"));
+        invoices2.forEach(System.out::println);
+
+        System.out.println("🟢 Containing 🟢");
+        List<Invoice> invoices3 = repository.findByClientContainingOrderByClientDesc("a");
+        invoices3.forEach(System.out::println);
+
+        System.out.println("🟢 Pagination 🟢");
+
+        System.out.println("📝 Page 1, 5 Invoices");
+        Page<Invoice> page1 = repository.findAll(PageRequest.of(0, 5));
+        page1.forEach(System.out::println);
+
+        System.out.println("📝 Page 2, 5 Invoices");
+        Page<Invoice> page2 = repository.findAll(PageRequest.of(1, 5));
+        page2.forEach(System.out::println);
+
+        System.out.println("📝 Page 3, 5 Invoices");
+        Page<Invoice> page3 = repository.findAll(PageRequest.of(2, 5));
+        page3.forEach(System.out::println);
+
     }
 }

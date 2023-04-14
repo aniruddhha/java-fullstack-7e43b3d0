@@ -13,7 +13,7 @@ public class SpringDataDemoApplication {
 		ApplicationContext ctx = SpringApplication.run(SpringDataDemoApplication.class, args);
 
 		CustomizedDemo demo = ctx.getBean(CustomizedDemo.class);
-		demo.demo4();
+		demo.demo5();
 	}
 
 }

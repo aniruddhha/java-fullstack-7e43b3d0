@@ -3,6 +3,9 @@ package com.ani.data.domain.repository;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.CrudRepository;
 
 import com.ani.data.domain.Invoice;
@@ -24,4 +27,12 @@ public interface InvoiceCustomizedRepository extends CrudRepository<Invoice, Lon
     List<Invoice> findByInvDtBetween(LocalDate st, LocalDate ed);
 
     List<Invoice> findByInvDtBetweenAndAmtGreaterThan(LocalDate st, LocalDate ed, Double amt);
+
+    List<Invoice> findTop10ByOrderByAmtDesc();
+
+    List<Invoice> findByClientLike(String stm, Sort sort);
+
+    List<Invoice> findByClientContainingOrderByClientDesc(String stm);
+
+    Page<Invoice> findAll(Pageable page);
 }

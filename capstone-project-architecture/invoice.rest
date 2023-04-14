@@ -1,0 +1,11 @@
+### Create New Account
+
+POST http://localhost:8080/invoice/ HTTP/1.1 
+content-type: application/json
+
+{
+    "id" : 17, 
+    "client" : "zwr", 
+    "invDt" : "2020-01-01",
+    "amt" : 98
+}

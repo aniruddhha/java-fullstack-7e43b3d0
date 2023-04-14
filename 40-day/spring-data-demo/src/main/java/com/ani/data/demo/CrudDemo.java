@@ -24,16 +24,17 @@ public class CrudDemo {
 		invoice1.setInvDt(LocalDate.now());
 
 		System.out.println("🟢 Creating New Invoice 🟢");
-		repository.save(invoice1);
+		Invoice saved = repository.save(invoice1); // 👈 Create
+        System.out.println(saved);
 		System.out.println("🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
 
 		System.out.println("🟢 Reading All Invoices 🟢");
-		Iterable<Invoice> invoices = repository.findAll();
+		Iterable<Invoice> invoices = repository.findAll(); // 👈 Read All
 		invoices.forEach( inv -> System.out.println(inv));
 		System.out.println("🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
 
 		System.out.println("🟢 Reading Single Invoive 🟢");
-		Optional<Invoice> opInv1 = repository.findById(2L);
+		Optional<Invoice> opInv1 = repository.findById(2L); // 👈 Read Single
 		Invoice inv2 = opInv1.orElseThrow(() -> new RuntimeException("❌ Invlaid Id"));
 		System.out.println(inv2);
 		System.out.println("🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
@@ -44,7 +45,12 @@ public class CrudDemo {
 		invoice3.setClient("ddd");
 		invoice3.setAmt(1234.456d);
 		invoice3.setInvDt(LocalDate.of(2022, 01, 30));
-		repository.save(invoice3);
+		repository.save(invoice3); // 👈 Update
 		System.out.println("🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+
+        System.out.println("🟢 Deleting Invoive 🟢");
+        repository.deleteById(2L);
+        repository.findAll().forEach(inv -> System.out.println(inv));
+        System.out.println("🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
     }
 }

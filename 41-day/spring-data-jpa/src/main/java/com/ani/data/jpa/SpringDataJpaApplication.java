@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.data.jpa.domain.Specification;
 
 import com.ani.data.jpa.domain.Mobile;
 import com.ani.data.jpa.domain.Product;
@@ -62,6 +63,15 @@ public class SpringDataJpaApplication {
 	public static void demo6(ProductRepository repo) {
 		List<Product> products1 = repo.findAll(ProductSpecifications.hasNameContaining("Pi"));
 		products1.forEach(System.out::println);
+	}
+
+	public static void demo7(ProductRepository repo) {
+		Specification<Product> spec = Specification
+		.where(ProductSpecifications.hasNameContaining("ac"))
+		.and(ProductSpecifications.hasPriceLessThan(89d));
+
+		List<Product> products = repo.findAll(spec);
+		products.forEach(System.out::println);
 	}
 
 	public static void main(String[] args) {

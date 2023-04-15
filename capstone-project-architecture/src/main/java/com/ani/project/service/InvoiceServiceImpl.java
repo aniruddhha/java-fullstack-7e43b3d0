@@ -1,6 +1,7 @@
 package com.ani.project.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ani.project.dto.InvoiceDto;
 import com.ani.project.repository.InvoiceRepository;
@@ -8,6 +9,7 @@ import com.ani.project.util.InvoiceMapper;
 
 import lombok.AllArgsConstructor;
 
+@Transactional
 @AllArgsConstructor
 @Service
 public class InvoiceServiceImpl implements InvoiceService {

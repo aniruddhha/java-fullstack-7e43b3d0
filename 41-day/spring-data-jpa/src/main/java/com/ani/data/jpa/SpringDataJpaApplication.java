@@ -9,6 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import com.ani.data.jpa.domain.Mobile;
+import com.ani.data.jpa.domain.Product;
+import com.ani.data.jpa.repo.ProductRepository;
+import com.ani.data.jpa.repo.ProductSpecifications;
 import com.ani.data.jpa.repo.SimpleJpaRepo;
 
 @SpringBootApplication
@@ -46,11 +49,26 @@ public class SpringDataJpaApplication {
 		System.out.println(mob3);
 	}
 
+	public static void demo4(SimpleJpaRepo repo) {
+		Optional<Mobile> op1 = repo.findByNumberAndLat("1607092591", 17.90f);
+		Mobile mob1 = op1.orElseThrow(() -> new RuntimeException("Invalid Mobile Number"));
+		System.out.println(mob1);
+	}
+
+	public static void demo5(SimpleJpaRepo repo) {
+		repo.custSave(99L, "9999", 18.90f, 72.90f);
+	}
+
+	public static void demo6(ProductRepository repo) {
+		List<Product> products1 = repo.findAll(ProductSpecifications.hasNameContaining("Pi"));
+		products1.forEach(System.out::println);
+	}
+
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SpringDataJpaApplication.class, args);
 
 		// Arrays.stream(ctx.getBeanDefinitionNames()).forEach(System.out::println); 
-		demo3(ctx.getBean(SimpleJpaRepo.class));
+		demo6(ctx.getBean(ProductRepository.class));
 	}
 
 }

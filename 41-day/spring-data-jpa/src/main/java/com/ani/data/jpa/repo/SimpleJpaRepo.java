@@ -4,11 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ani.data.jpa.domain.Mobile;
 
+@Transactional
 public interface SimpleJpaRepo extends JpaRepository<Mobile, Long> {
     
     List<Mobile> findByNumberContaining(String num);
@@ -29,4 +32,10 @@ public interface SimpleJpaRepo extends JpaRepository<Mobile, Long> {
 
     @Query(value = "select m from Mobile m where m.number = ?1" ) // sql
     Optional<Mobile> findOneWithMobile3(String mobile);
+
+    Optional<Mobile> findByNumberAndLat(String mobile, Float lat);
+
+    @Modifying
+    @Query(value = "insert into mobile (id, mob_num, lat, lng) values (?1, ?2, ?3, ?4)", nativeQuery = true)
+    void custSave(Long id, String mobile, Float lat, Float lng);
 }

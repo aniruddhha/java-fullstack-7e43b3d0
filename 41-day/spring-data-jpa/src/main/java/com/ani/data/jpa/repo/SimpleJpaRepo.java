@@ -35,6 +35,7 @@ public interface SimpleJpaRepo extends JpaRepository<Mobile, Long> {
 
     Optional<Mobile> findByNumberAndLat(String mobile, Float lat);
 
+    @Transactional
     @Modifying
     @Query(value = "insert into mobile (id, mob_num, lat, lng) values (?1, ?2, ?3, ?4)", nativeQuery = true)
     void custSave(Long id, String mobile, Float lat, Float lng);

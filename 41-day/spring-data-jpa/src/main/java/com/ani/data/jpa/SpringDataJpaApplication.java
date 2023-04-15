@@ -14,6 +14,7 @@ import com.ani.data.jpa.domain.Product;
 import com.ani.data.jpa.repo.ProductRepository;
 import com.ani.data.jpa.repo.ProductSpecifications;
 import com.ani.data.jpa.repo.SimpleJpaRepo;
+import com.ani.data.jpa.service.ProductService;
 
 @SpringBootApplication
 public class SpringDataJpaApplication {
@@ -74,11 +75,17 @@ public class SpringDataJpaApplication {
 		products.forEach(System.out::println);
 	}
 
+	public static void demo8(ProductService service) {
+		// service.customMethod(3);
+		service.customUpadte(8);
+	}
+
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SpringDataJpaApplication.class, args);
 
 		// Arrays.stream(ctx.getBeanDefinitionNames()).forEach(System.out::println); 
-		demo6(ctx.getBean(ProductRepository.class));
+		// demo6(ctx.getBean(ProductRepository.class));
+		demo8(ctx.getBean(ProductService.class));
 	}
 
 }

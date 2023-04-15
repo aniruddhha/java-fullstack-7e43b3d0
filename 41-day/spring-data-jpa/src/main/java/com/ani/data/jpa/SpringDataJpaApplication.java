@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import com.ani.data.jpa.domain.Mobile;
 import com.ani.data.jpa.domain.Product;
@@ -16,6 +17,7 @@ import com.ani.data.jpa.repo.ProductSpecifications;
 import com.ani.data.jpa.repo.SimpleJpaRepo;
 import com.ani.data.jpa.service.ProductService;
 
+@EnableJpaAuditing
 @SpringBootApplication
 public class SpringDataJpaApplication {
 
@@ -80,12 +82,22 @@ public class SpringDataJpaApplication {
 		service.customUpadte(8);
 	}
 
+	public static void demo9(ProductRepository repository) {
+
+		Product product = new Product();
+		product.setName("nnn");
+		product.setCategory("mmm");
+		product.setPrice(7.8d);
+		
+		repository.save(product);
+	}
+
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SpringDataJpaApplication.class, args);
 
 		// Arrays.stream(ctx.getBeanDefinitionNames()).forEach(System.out::println); 
-		// demo6(ctx.getBean(ProductRepository.class));
-		demo8(ctx.getBean(ProductService.class));
+			demo9(ctx.getBean(ProductRepository.class));
+		// demo8(ctx.getBean(ProductService.class));
 	}
 
 }

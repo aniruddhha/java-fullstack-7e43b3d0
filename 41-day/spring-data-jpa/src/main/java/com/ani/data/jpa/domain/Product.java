@@ -1,15 +1,19 @@
 package com.ani.data.jpa.domain;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+
+@Setter
+@Getter
 @Entity
-public class Product {
+public class Product extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,4 +21,5 @@ public class Product {
     private String name;
     private String category;
     private Double price;
+
 }

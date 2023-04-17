@@ -1,5 +1,6 @@
 package com.ani.mapping.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,7 +10,9 @@ import javax.persistence.OneToOne;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
+@ToString
 @Setter
 @Getter
 @Entity
@@ -21,7 +24,7 @@ public class IdentityDoc {
     private String type;
     private Boolean isActive;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL) //  if you delete/update/insert/ record from identity table, concerned record in Person table will also be deleted
     @JoinColumn(name = "person_id")
     private Person person;
 }

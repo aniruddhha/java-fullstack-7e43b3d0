@@ -10,7 +10,7 @@
         <property name="hibernate.connection.password">aniruddha</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MariaDBDialect</property>
 
-          <mapping class="com.ani.orm.domain.Car"/>
+        <mapping class="com.ani.orm.domain.Car"/>
     </session-factory>
 </hibernate-configuration>
 

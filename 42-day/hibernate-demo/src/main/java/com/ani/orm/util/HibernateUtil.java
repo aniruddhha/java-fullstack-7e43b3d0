@@ -10,7 +10,6 @@ public class HibernateUtil {
     static {
          try {
             sessionFactory = new Configuration()
-                    .addPackage("com.ani.orm.domain")
                     .configure()
                     .buildSessionFactory();
         } catch (HibernateException e) {

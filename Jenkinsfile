@@ -2,7 +2,7 @@ pipeline {
   agent any
   stages {
     stage("Clone the project") {
-      setps {
+      steps {
         git branch: 'main', url: 'https://github.com/aniruddhha/java-fullstack-7e43b3d0'
       }
     }

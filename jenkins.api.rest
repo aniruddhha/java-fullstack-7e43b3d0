@@ -1,0 +1,11 @@
+POST http://localhost:8080/job/git-sample-demo/build HTTP/1.1 
+content-type: application/json
+
+{
+    "id" : 17, 
+    "owner" : "zwr", 
+    "balance" : 98
+}
+
+
+5a5fc9352ef3015bdc0f31fd5dd0ee4b

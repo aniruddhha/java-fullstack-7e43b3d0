@@ -1,6 +1,19 @@
 const http = require('node:http')
 
+const loggware = (req, res) => {
+    console.log(`⚠️ Received ${req.method} request for ${req.url}`);
+}
+
+const globalErrorHandler = (req, res) => {
+    console.log(`❌ This is Global Error handler`);
+}
+
 const server = http.createServer((req, res) => {
+
+    // below are called middleware
+    req.on('end', () =>  loggware(req, res))
+    req.on('error', () =>  globalErrorHandler(req,res))
+
     // const url = req.url
     // const method = req.method
 

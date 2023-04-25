@@ -30,6 +30,6 @@ const el1 = arr[0]
 const el2 = arr[1]
 console.log(`1El ${el1}, 2El ${el2}`)
 
-const [e1, e2] = arr
+const [e1, e2] = arr // array destructutring
 console.log(`1El ${e1}, 2El ${e2}`)
 

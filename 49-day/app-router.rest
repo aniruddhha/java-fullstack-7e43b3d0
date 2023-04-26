@@ -1,0 +1,5 @@
+### Car GET
+GET http://localhost:3000/car
+
+### Bike GET
+GET http://localhost:3000/bike

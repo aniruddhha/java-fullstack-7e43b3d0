@@ -1,7 +1,22 @@
 import { EventEmitter } from 'node:events';
 
-const emitter = new EventEmitter()
+const emitter = new EventEmitter() // creating
 
-emitter.on('tick', (dt) => { console.log('✅ Called ' + dt)  })
+const onTick = dt => console.log('✅ Called =>  ' + dt) // es6 => arrow function
 
-emitter.emit('tick', 1)
+function onTickNormal(dt) { // normal function
+    console.log('✅ Called normal ' + dt)
+}
+
+const onComplete = () => console.log(`✅ Files Uploaded`)
+
+emitter.on('tick', onTick) // listening -> method reference 
+emitter.on('tick', onTickNormal) // listening
+
+emitter.once('completed', onComplete)
+
+emitter.emit('tick', 1) // emitting
+
+
+
+emitter.off('tick', onTick) // removing event listener

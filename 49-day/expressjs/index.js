@@ -13,8 +13,8 @@ const customMiddleware = (req, res, next) => {
 
     if(name.length < 3) {
         res.json({ sts :'fail', msg:'invalid name' })
+        return
     }
-    
     next()
 }
 

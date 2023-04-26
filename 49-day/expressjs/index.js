@@ -3,6 +3,23 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+const customMiddleware = (req, res, next) => {
+    // const id = req.body.id
+    // const name = req.body.name
+    // const category = req.body.category
+    // const price = req.body.price
+
+    const { id, name, category, price } = req.body
+
+    if(name.length < 3) {
+        res.json({ sts :'fail', msg:'invalid name' })
+    }
+    
+    next()
+}
+
+app.use(express.json())
+
 const onGet = (req, res) => {
     res.json({ sts: 'success', msg :'GET Request' })
 }
@@ -11,7 +28,8 @@ function onGet2(req, res) {
 }
 app.get('/', onGet2)
 
-app.post('/', (req, res) => {
+app.post('/', express.json(), customMiddleware , (req, res) => {
+    console.log(req.body)
     res.json({ sts: 'success', msg :'POST Request' })
 })
 

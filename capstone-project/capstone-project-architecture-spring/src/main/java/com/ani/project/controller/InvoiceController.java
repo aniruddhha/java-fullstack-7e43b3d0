@@ -19,7 +19,6 @@ import com.ani.project.service.InvoiceService;
 
 import lombok.AllArgsConstructor;
 
-    
 @CrossOrigin
 @AllArgsConstructor
 @RequestMapping(value = "/invoice")
@@ -28,6 +27,7 @@ public class InvoiceController {
 
     private final InvoiceService service;
     
+    @CrossOrigin
     @PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AppResponse<Integer>> createNewInvoice(@RequestBody InvoiceDto dto) {
 

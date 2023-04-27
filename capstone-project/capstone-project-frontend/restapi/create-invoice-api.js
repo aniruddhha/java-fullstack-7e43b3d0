@@ -1,4 +1,4 @@
-function createNewInvoice(invoice, form) {
+function apiCreateNewInvoice(invoice, form) {
 
         const headers = {
                 'content-type' : 'application/json'
@@ -41,7 +41,7 @@ function setupForm() {
                 const invoice = Object.fromEntries(formData.entries()) // you are converting form data to js object
                 console.log(invoice)
 
-                createNewInvoice(invoice, formInvoice) // we are pass form object to reset the form on success
+                apiCreateNewInvoice(invoice, formInvoice) // we are pass form object to reset the form on success
         }
 }
 setupForm()

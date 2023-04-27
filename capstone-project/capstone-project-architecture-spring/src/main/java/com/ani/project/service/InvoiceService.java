@@ -9,4 +9,6 @@ public interface InvoiceService {
     Integer createNewInvoice(InvoiceDto invoice);
 
     List<InvoiceDto> all();
+
+    Integer deleteInvoice(Long id);
 }

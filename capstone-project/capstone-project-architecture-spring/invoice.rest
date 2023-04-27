@@ -12,3 +12,6 @@ content-type: application/json
 
 ### Get All Invoices
 GET http://localhost:8080/invoice/
+
+### Delete Invoice By Id
+DELETE http://localhost:8080/invoice/1

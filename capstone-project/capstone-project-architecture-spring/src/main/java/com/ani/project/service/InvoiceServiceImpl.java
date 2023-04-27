@@ -19,7 +19,7 @@ public class InvoiceServiceImpl implements InvoiceService {
 
     private final InvoiceRepository repository;
     private final InvoiceMapper mapper;
-    
+
     @Override
     public Integer createNewInvoice(InvoiceDto dto) {
         repository.save(mapper.toDomain(dto));
@@ -29,9 +29,15 @@ public class InvoiceServiceImpl implements InvoiceService {
     @Override
     public List<InvoiceDto> all() {
         return repository.findAll()
-                        .stream()
-                        // .map( invoice -> mapper.toDto(invoice) )
-                        .map(mapper::toDto)
-                        .collect(Collectors.toList());
+                .stream()
+                // .map( invoice -> mapper.toDto(invoice) )
+                .map(mapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Integer deleteInvoice(Long id) {
+        repository.deleteById(id);
+        return 1;
     }
 }

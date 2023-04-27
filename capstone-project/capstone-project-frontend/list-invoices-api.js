@@ -1,7 +1,7 @@
 function setupTable() {
     const table = document.getElementById('tableInvoice')
 
-    fetchAllInvoices(table)
+    apiFetchAllInvoices(table)
 }
 
 setupTable()
@@ -28,11 +28,27 @@ function propulateActualData(table, invoices) {
         row.insertCell(1).innerHTML = client
         row.insertCell(2).innerHTML = amt
         row.insertCell(3).innerHTML = invDt
-        row.insertCell(4).innerHTML = `<a href='#'>View</a> <a class='ms-2' href='#'>Update</a> <a class='ms-2' href='#'>Delete</a> `
+        row.insertCell(4).innerHTML = `
+            <a href='#'>View</a> 
+            <a class='ms-2' href='#'>Update</a> 
+            <a class='ms-2' onclick='showConfirmDeleteModal(${id})'>Delete</a> 
+        `
     }
 }
 
-function fetchAllInvoices(table) {
+function showConfirmDeleteModal(id) {
+    console.log('clicked ' + id)
+    var myModalEl = document.getElementById('deleteModal');
+    var modal = new bootstrap.Modal(myModalEl)
+    modal.show()
+
+    const btDl = document.getElementById('btDl')
+    btDl.onclick = () => {
+        apiCallDeleteInvoice(id, modal)
+    }
+}
+
+function apiFetchAllInvoices(table) {
     axios.get('http://localhost:8080/invoice/')
         .then(res => {
             const { data } = res
@@ -42,4 +58,14 @@ function fetchAllInvoices(table) {
             propulateActualData(table, bd)
         })
         .catch(err => console.log(err))
+}
+
+function apiCallDeleteInvoice(id, modal) {
+    const url = `http://localhost:8080/invoice/${id}`
+
+    axios.delete(url)
+        .then(res => res.data) // you converted complete response in to our business reponse
+        // .then( data => console.log(data.msg) ) // this line can be written in destructured form as below
+        .then( ({ sts, msg, bd }) =>  modal.hide() )
+        .catch(console.log)
 }

@@ -9,3 +9,6 @@ content-type: application/json
     "invDt" : "2020-01-01",
     "amt" : 98
 }
+
+### Get All Invoices
+GET http://localhost:8080/invoice/

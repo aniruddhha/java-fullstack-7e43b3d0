@@ -1,5 +1,4 @@
 ### Create New Account
-
 POST http://localhost:8080/invoice/ HTTP/1.1 
 content-type: application/json
 
@@ -15,3 +14,18 @@ GET http://localhost:8080/invoice/
 
 ### Delete Invoice By Id
 DELETE http://localhost:8080/invoice/1
+
+### Invoice By Id
+GET http://localhost:8080/invoice/3
+
+### Create New Account
+
+PUT http://localhost:8080/invoice/ HTTP/1.1 
+content-type: application/json
+
+{
+    "id" : 10, 
+    "client" : "ooo", 
+    "invDt" : "1990-01-01",
+    "amt" : 70000
+}

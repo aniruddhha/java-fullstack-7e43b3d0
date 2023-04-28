@@ -12,17 +12,11 @@ function moduleImportExportRevision() {
     const { MongoClinent, MongoError } = obj
 }
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient } = require('mongodb');
 
 const url = 'mongodb://127.0.0.1:27017/test';
 
-const client = new MongoClient(url, {
-    serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
-    }
-});
+const client = new MongoClient(url);
 
 client.connect().then(() => {
     console.log(`✅ Connected Successfully`)

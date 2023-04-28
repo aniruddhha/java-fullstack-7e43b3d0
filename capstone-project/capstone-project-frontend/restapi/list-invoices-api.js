@@ -19,9 +19,9 @@ function populateStaticData(table) {
 
 function propulateActualData(table, invoices) {
 
-    for(let i = 0; i < invoices.length; i++) {
+    for(const invoice of invoices) {
 
-        const { id, client, invDt, amt } = invoices[i]
+        const { id, client, invDt, amt } = invoice
         const updatePageUrl = `./update-invoice.html?id=${id}`
         const viewPageUrl = `./view-invoice.html?id=${id}`
 
@@ -40,8 +40,8 @@ function propulateActualData(table, invoices) {
 
 function showConfirmDeleteModal(id) {
     console.log('clicked ' + id)
-    var myModalEl = document.getElementById('deleteModal');
-    var modal = new bootstrap.Modal(myModalEl)
+    const myModalEl = document.getElementById('deleteModal');
+    const modal = new bootstrap.Modal(myModalEl)
     modal.show()
 
     const btDl = document.getElementById('btDl')

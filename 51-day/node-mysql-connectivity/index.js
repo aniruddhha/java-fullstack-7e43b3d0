@@ -7,12 +7,15 @@ const connection = mysql.createConnection({
 })
 
 connection.connect(err => {
-    if (err) {
+    if (err) { // if err object have valid value, if no error it is undefined
         console.log(`❌ Problem In Connectivity`)
+        console.log(err)
         return
     }
 
     console.log(`✅ Connected Successfully`)
+
+    connection.query("", (err, result)=>{})
 
     connection.query("CREATE DATABASE nodejsdb", (err, result) => {
         if (err) {

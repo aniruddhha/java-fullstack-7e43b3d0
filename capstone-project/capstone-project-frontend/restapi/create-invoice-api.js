@@ -47,7 +47,7 @@ function setupForm() {
 setupForm()
 
 function showSuccessModal() {
-        var myModalEl = document.getElementById('successModal');
-        var modal = new bootstrap.Modal(myModalEl)
+        const myModalEl = document.getElementById('successModal');
+        const modal = new bootstrap.Modal(myModalEl)
         modal.show()
 }

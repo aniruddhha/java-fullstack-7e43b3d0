@@ -18,21 +18,39 @@
 
 <body>
   <div class="container mt-3">
-    <h2 class="bg-primary p-2 mt-2 text-white">Invoices</h2>
-    <p> List all invoices till date </p>
-    <table class="table table-bordered" id="tableInvoice">
-      <thead>
-        <tr>
-          <th>Invoice #</th>
-          <th>Client</th>
-          <th>Amount</th>
-          <th>Date</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
+    <div class="row bg-primary text-white mt-2 ">
+      <div class="col">
+        <h2 class="p-2 ">Invoices</h2>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-3">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="txtClient" placeholder="Client" name="client">
+          <label for="txtClient">Client</label>
+        </div>
+        
+      </div>
+      <div class="col-2">
+        <input type="button" value="Serach" class="btn btn-primary" id="btnSearch">
+      </div>
+    </div>
+    <div class="row mt-3">
+      <table class="table table-bordered" id="tableInvoice">
+        <thead>
+          <tr>
+            <th>Invoice #</th>
+            <th>Client</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+    </div>
   </div>
 
   <!-- Modal -->

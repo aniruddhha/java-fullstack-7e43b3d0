@@ -101,6 +101,19 @@ public class InvoiceController {
         return ResponseEntity.ok().body(response);
     }
 
+    @GetMapping(value = "/customer/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<AppResponse<List<InvoiceDto>>> allCustomerInvoices(@PathVariable Long id) {
+        List<InvoiceDto> invoices = service.allCustomerInvoices(id);
+
+        AppResponse<List<InvoiceDto>> response = AppResponse.<List<InvoiceDto>>builder()
+                                                            .sts("success")
+                                                            .msg("Customer Invoices")
+                                                            .bd(invoices)
+                                                            .build();
+
+        return ResponseEntity.ok().body(response);
+    }
+
     @CrossOrigin
     @PutMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AppResponse<Integer>> updateNewInvoice(@RequestBody InvoiceDto dto) {

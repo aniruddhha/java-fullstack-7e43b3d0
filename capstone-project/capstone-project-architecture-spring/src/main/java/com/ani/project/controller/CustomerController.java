@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ani.project.dto.CustomerCreateDto;
 import com.ani.project.dto.CustomerListDto;
-import com.ani.project.repository.CustomerRepository;
 import com.ani.project.service.CustomerService;
 
 import lombok.AllArgsConstructor;

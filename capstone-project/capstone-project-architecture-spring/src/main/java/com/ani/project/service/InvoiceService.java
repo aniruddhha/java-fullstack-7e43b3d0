@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.ani.project.dto.InvoiceCustomerDto;
 import com.ani.project.dto.InvoiceDto;
+import com.ani.project.exception.CustomerNotFoundException;
 import com.ani.project.exception.InvoiceNotFoundException;
 
 public interface InvoiceService {
@@ -19,4 +20,6 @@ public interface InvoiceService {
     InvoiceDto fetchInvoiceDetails(Long id) throws InvoiceNotFoundException;
 
     Integer updateInvoice(InvoiceDto invoice);
+
+    List<InvoiceDto> allCustomerInvoices(Long id) throws CustomerNotFoundException;
 }

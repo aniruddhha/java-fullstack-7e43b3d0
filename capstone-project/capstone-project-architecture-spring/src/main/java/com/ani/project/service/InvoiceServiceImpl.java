@@ -77,4 +77,12 @@ public class InvoiceServiceImpl implements InvoiceService {
 
         return 1;
     }
+
+    @Override
+    public List<InvoiceDto> allCustomerInvoices(Long id) throws CustomerNotFoundException {
+        return repository.findByCustomer_Id(id)
+                        .stream()
+                        .map(mapper::toDto)
+                        .collect(Collectors.toList());
+    }
 }

@@ -41,3 +41,7 @@ content-type: application/json
     "invDt" : "1990-01-01",
     "amt" : 70000
 }
+
+### List All Customer Invoices
+GET http://localhost:8080/invoice/customer/2
+

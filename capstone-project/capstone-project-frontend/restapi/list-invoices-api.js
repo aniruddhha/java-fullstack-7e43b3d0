@@ -1,6 +1,13 @@
 function setupTable() {
     const table = document.getElementById('tableInvoice')
 
+    const btnSearch = document.getElementById('btnSearch')
+    
+    btnSearch.onclick = () =>   {
+
+        apiFetchAllCustomerInvoices(table, document.getElementById('txtClient').value )
+    }
+
     apiFetchAllInvoices(table)
 }
 
@@ -61,6 +68,20 @@ function apiFetchAllInvoices(table) {
         })
         .catch(err => console.log(err))
 }
+
+function apiFetchAllCustomerInvoices(table, id) {
+    const url = `http://localhost:8080/invoice/customer/${id}`
+    axios.get(url)
+        .then(res => {
+            const { data } = res
+            console.log(data)  
+            const { sts, msg, bd } = data
+
+            propulateActualData(table, bd)
+        })
+        .catch(err => console.log(err))
+}
+
 
 function apiCallDeleteInvoice(id, modal) {
     const url = `http://localhost:8080/invoice/${id}`

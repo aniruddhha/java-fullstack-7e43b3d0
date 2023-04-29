@@ -22,5 +22,5 @@ public class InvoiceDto {
 
     private LocalDate invDt; // inv_dt
 
-    private Double amt;    
+    private Double amt;  
 }

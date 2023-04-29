@@ -9,7 +9,13 @@ import com.ani.project.dto.InvoiceDto;
 public class InvoiceMapper {
     
     public Invoice toDomain(InvoiceDto dto) {
-        return new Invoice(dto.getId(), dto.getClient(), dto.getInvDt(), dto.getAmt());
+
+        return Invoice.builder()
+                        .amt(dto.getAmt())
+                        .client(dto.getClient())
+                        .id(dto.getId())
+                        .invDt(dto.getInvDt())
+                        .build();
     }
 
     public InvoiceDto toDto(Invoice domain) {

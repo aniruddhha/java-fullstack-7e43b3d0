@@ -4,3 +4,6 @@ docker run --rm -p 9000:9000 -v sonarqube_extensions:/opt/sonarqube/extensions s
 
 switichng to java8
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
+# End of the Syllabus 
+> 🗓️ Sat, 29th April 2023.

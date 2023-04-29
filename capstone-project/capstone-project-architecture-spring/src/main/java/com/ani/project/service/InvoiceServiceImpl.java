@@ -7,9 +7,13 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ani.project.domain.Customer;
 import com.ani.project.domain.Invoice;
+import com.ani.project.dto.InvoiceCustomerDto;
 import com.ani.project.dto.InvoiceDto;
+import com.ani.project.exception.CustomerNotFoundException;
 import com.ani.project.exception.InvoiceNotFoundException;
+import com.ani.project.repository.CustomerRepository;
 import com.ani.project.repository.InvoiceRepository;
 import com.ani.project.util.InvoiceMapper;
 
@@ -21,6 +25,7 @@ import lombok.AllArgsConstructor;
 public class InvoiceServiceImpl implements InvoiceService {
 
     private final InvoiceRepository repository;
+    private final CustomerRepository customerRepository;
     private final InvoiceMapper mapper;
 
     @Override
@@ -53,6 +58,23 @@ public class InvoiceServiceImpl implements InvoiceService {
     @Override
     public Integer updateInvoice(InvoiceDto invoice) {
         repository.save(mapper.toDomain(invoice));
+        return 1;
+    }
+
+    @Override
+    public Integer createNewInvoice(InvoiceCustomerDto dto) {
+
+        Customer customer = customerRepository.findById(dto.getCustomerId())
+                                        .orElseThrow(() -> new CustomerNotFoundException("Customer Not Found"));
+
+        Invoice invoice = new Invoice();
+        invoice.setAmt(dto.getAmt());
+        invoice.setClient(dto.getClient());
+        invoice.setInvDt(dto.getInvDt());
+        invoice.setCustomer(customer);
+
+        repository.save(invoice);
+
         return 1;
     }
 }

@@ -1,0 +1,16 @@
+### Create New Account
+POST http://localhost:8080/customer/ HTTP/1.1 
+content-type: application/json
+
+{
+    "name" : "kut", 
+    "dob" : "1980-01-01",
+    "mobile": "88881111",
+    "isActive" : true
+}
+
+### List All Customers
+GET http://localhost:8080/customer/
+
+### List All Customers with Mobile
+GET http://localhost:8080/customer/6

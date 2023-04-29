@@ -9,6 +9,18 @@ content-type: application/json
     "amt" : 98
 }
 
+### Create New Invoice with Customer
+POST http://localhost:8080/invoice/customer HTTP/1.1 
+content-type: application/json
+
+{
+    "client" : "zwr", 
+    "invDt" : "2020-01-01",
+    "amt" : 98,
+    "customerId" : 1
+}
+
+
 ### Get All Invoices
 GET http://localhost:8080/invoice/
 

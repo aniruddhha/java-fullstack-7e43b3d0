@@ -17,10 +17,15 @@
 
 <body>
     <form class="container" id="formInvoice">
-        <div class="row">
-            <h2 class="bg-primary p-2 mt-2 text-white">
-                Create New Invoice
-            </h2>
+        <div class="row bg-primary text-white mt-2 mb-3">
+            <div class="col">
+                <h2 class="p-2 mt-2 ">
+                    Create New Invoice
+                </h2>
+            </div>
+            <div class="col d-flex justify-content-end align-items-center">
+                <a class="text-white" href="./list-invoices.html">Invoices</a>
+            </div>
         </div>
         <div class="row">
             <div class="form-floating col-6">
@@ -38,11 +43,22 @@
         </div>
         <div class="row">
             <div class="col">
-                <input type="submit" value="Create" class="btn btn-success">
+                <div class="form-floating">
+                    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Search">
+                    <label for="exampleDataList" class="form-label">Datalist example</label>
+                    <datalist id="datalistOptions">
+                        <option value="San Francisco">
+                        <option value="New York">
+                        <option value="Seattle">
+                        <option value="Los Angeles">
+                        <option value="Chicago">
+                    </datalist>
+                </div>
             </div>
             <div class="col">
-                <a href="./list-invoices.html"> Invoices </a>
+                <input type="submit" value="Create" class="btn btn-success">
             </div>
+          
         </div>
     </form>
 

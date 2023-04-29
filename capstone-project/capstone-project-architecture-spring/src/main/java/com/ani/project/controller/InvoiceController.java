@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ani.project.dto.AppResponse;
+import com.ani.project.dto.InvoiceCustomerDto;
 import com.ani.project.dto.InvoiceDto;
 import com.ani.project.service.InvoiceService;
 
@@ -43,6 +44,22 @@ public class InvoiceController {
                                                     .build();
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
+
+
+    @CrossOrigin
+    @PostMapping(value = "/customer", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<AppResponse<Integer>> createNewCustomerInvoice(@RequestBody InvoiceCustomerDto dto) {
+
+        final Integer sts = service.createNewInvoice(dto);
+
+        final AppResponse<Integer> response = AppResponse.<Integer>builder()
+                                                    .sts("success")
+                                                    .msg("Invoice Created Successfully")
+                                                    .bd(sts)
+                                                    .build();
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
 
     @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AppResponse<List<InvoiceDto>>> allInvoices() {

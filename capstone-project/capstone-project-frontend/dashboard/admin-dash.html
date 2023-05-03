@@ -12,7 +12,7 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title>Login</title>
+    <title>Admin Dashboard</title>
 </head>
 
 <body>
@@ -20,11 +20,11 @@
         <div class="row bg-primary text-white mt-2 mb-3">
             <div class="col">
                 <h2 class="p-2 mt-2 ">
-                     Login
+                    Admin Dashboard
                 </h2>
             </div>
             <div class="col d-flex justify-content-end align-items-center">
-                <a class="text-white" href="./signup.html">Signup</a>
+                <a class="text-white" href="#">2023-01-01</a>
             </div>
         </div>
         <div class="row">
@@ -33,23 +33,13 @@
                 </div>
             </div>
         </div>
-        <div class="row d-flex justify-content-evenly">
-            <div class="form-floating col-3">
-                <input type="text" class="form-control" id="txtUsNm" placeholder="Username" name="userName" required>
-                <label for="txtUsNm">Username</label>
-            </div>
-            <div class="form-floating col-3">
-                <input type="password" class="form-control" id="txtPss" placeholder="Amount" name="password" required>
-                <label for="txtPss">Password</label>
-            </div>
-            <div class="col-3 d-flex justify-content-start align-items-center">
-                <input type="submit" value="Login" class="btn btn-success">
-            </div>
+        <div class="row">
+           
         </div>
     </form>
 
     <!-- here you need to import your scripts -->
-    <script src="./restapi/login-api.js"></script>
+    <script src="./restapi/user-api.js"></script>
 </body>
 
 </html>

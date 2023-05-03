@@ -1,10 +1,7 @@
-const validateForm = ({ userName, password, role }) => {
-
-    const roles = ['admin', 'user']
+const validateForm = ({ userName, password }) => {
 
     if (userName.length <= 0) return { msg: 'invalid username', sts: false}
     if (password.length <= 0) return { msg: 'invalid password', sts: false }
-    if((role.length <= 0) || !roles.includes(role)) return { msg: 'invalid role', sts: false }
 
     return { sts : 'success', msg :'all fields are valid' }
 }
@@ -14,7 +11,7 @@ function setupForm() {
     const err = document.getElementById('errMsg')
     err.style.display = 'none'
 
-    const formSignup = document.getElementById('formSignup')
+    const formSignup = document.getElementById('formLogin')
 
     formSignup.onsubmit = ev => { // when form is submitted, this function would be called
 
@@ -27,7 +24,7 @@ function setupForm() {
 
         const { sts, msg } = validateForm(user)
 
-        if (sts) apiSignup(user, formSignup)
+        if (sts) apiLogin(user, formSignup)
         else {
             err.style.display = 'block'
             err.innerHTML = `<strong>${msg}</strong>`
@@ -37,20 +34,28 @@ function setupForm() {
 
 setupForm()
 
-function apiSignup(user, form) {
+function apiLogin(user, form) {
     const headers = {
         'content-type': 'application/json'
     }
 
-    axios.post('http://localhost:8080/user/', user, { headers })
-        .then(res => {
+    axios.post('http://localhost:8080/user/login', user, { headers })
+        .then(httpResponse => {
             form.reset()
-            showSuccessModal()
-        }).catch(err => console.log(err))
-}
+            console.log(httpResponse)
 
-function showSuccessModal() {
-    const myModalEl = document.getElementById('successModal');
-    const modal = new bootstrap.Modal(myModalEl)
-    modal.show()
+            return httpResponse.data
+
+        }).then(data => {
+            const { role } = data.bd
+
+            if(role == 'admin') window.location.href = '../dashboard/admin-dash.html'
+            else  window.location.href = '../dashboard/user-dash.html'
+        } )
+        .catch(err => {
+            console.log(err)
+            const errDv = document.getElementById('errMsg')
+            errDv.style.display = 'block'
+            errDv.innerHTML = `<strong>${err.response.data.msg}</strong>`
+        })
 }
